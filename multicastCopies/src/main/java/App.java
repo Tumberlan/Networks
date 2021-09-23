@@ -34,7 +34,8 @@ public class App {
             multicastSocket = new MulticastSocket(MULTICAST_PORT);
             multicastSocket.joinGroup(groupAddress);
             multicastSocket.setSoTimeout(TIME_TO_RECEIVE_MESSAGE);
-        }catch (IOException ignored){}
+        } catch (IOException ignored) {
+        }
 
         byte[] code;
 
@@ -44,7 +45,8 @@ public class App {
                 DatagramPacket sendingMulticastDatagram = new DatagramPacket(code, code.length, groupAddress, MULTICAST_PORT);
                 try {
                     multicastSocket.send(sendingMulticastDatagram, TTL);
-                } catch (IOException ignored) {}
+                } catch (IOException ignored) {
+                }
                 timeOfLastSending = System.currentTimeMillis();
             }
             try {
