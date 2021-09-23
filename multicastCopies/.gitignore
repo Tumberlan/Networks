@@ -5,3 +5,5 @@
 .classes/
 *.class
 .generated-sources
+
+*.iml
