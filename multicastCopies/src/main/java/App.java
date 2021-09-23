@@ -27,47 +27,50 @@ public class App {
     public void run() {
         String decodedReceivedCode = null;
 
+
+        startTime = System.currentTimeMillis();
+        MulticastSocket multicastSocket = null;
         try {
-            startTime = System.currentTimeMillis();
-            MulticastSocket multicastSocket = new MulticastSocket(MULTICAST_PORT);
+            multicastSocket = new MulticastSocket(MULTICAST_PORT);
             multicastSocket.joinGroup(groupAddress);
-
             multicastSocket.setSoTimeout(TIME_TO_RECEIVE_MESSAGE);
-            byte[] code;
+        }catch (IOException ignored){}
 
-            while (isTimeNotRunOutStill()) {
-                code = codeUUID(OWN_UUID);
-                if ((System.currentTimeMillis() - timeOfLastSending) > TIME_TO_SEND_MESSAGE) {
-                    DatagramPacket sendingMulticastDatagram = new DatagramPacket(code, code.length, groupAddress, MULTICAST_PORT);
-                    multicastSocket.send(sendingMulticastDatagram, TTL);
-                    timeOfLastSending = System.currentTimeMillis();
-                }
+        byte[] code;
+
+        while (isTimeNotRunOutStill()) {
+            code = codeUUID(OWN_UUID);
+            if ((System.currentTimeMillis() - timeOfLastSending) > TIME_TO_SEND_MESSAGE) {
+                DatagramPacket sendingMulticastDatagram = new DatagramPacket(code, code.length, groupAddress, MULTICAST_PORT);
                 try {
-                    DatagramPacket receivedMulticastDatagram = new DatagramPacket(new byte[UUID_BYTE_LENGTH], UUID_BYTE_LENGTH);
-                    multicastSocket.receive(receivedMulticastDatagram);
-                    byte[] receivedCode = receivedMulticastDatagram.getData();
+                    multicastSocket.send(sendingMulticastDatagram, TTL);
+                } catch (IOException ignored) {}
+                timeOfLastSending = System.currentTimeMillis();
+            }
+            try {
+                DatagramPacket receivedMulticastDatagram = new DatagramPacket(new byte[UUID_BYTE_LENGTH], UUID_BYTE_LENGTH);
+                multicastSocket.receive(receivedMulticastDatagram);
+                byte[] receivedCode = receivedMulticastDatagram.getData();
 
-                    decodedReceivedCode = decodeUUID(receivedCode);
+                decodedReceivedCode = decodeUUID(receivedCode);
 
-                } catch (IOException invalid) {
-                }
-
-                String uniqueUUID = null;
-                if (decodedReceivedCode != null) {
-                    uniqueUUID = decodedReceivedCode;
-                }
-                connectionsCleaner();
-                connectionsList.put(uniqueUUID, System.currentTimeMillis());
-                int newNumberOfCopies = connectionsList.size();
-                if (newNumberOfCopies != numberOfCopies) {
-                    numberOfCopies = newNumberOfCopies;
-                    printCopiesList();
-                }
-
+            } catch (IOException invalid) {
             }
 
-        } catch (IOException ignored) {
+            String uniqueUUID = null;
+            if (decodedReceivedCode != null) {
+                uniqueUUID = decodedReceivedCode;
+            }
+            cleanConnections();
+            connectionsList.put(uniqueUUID, System.currentTimeMillis());
+            int newNumberOfCopies = connectionsList.size();
+            if (newNumberOfCopies != numberOfCopies) {
+                numberOfCopies = newNumberOfCopies;
+                printCopiesList();
+            }
+
         }
+
 
     }
 
@@ -75,7 +78,7 @@ public class App {
         return TIME_FOR_WORK >= (System.currentTimeMillis() - startTime);
     }
 
-    private void connectionsCleaner() {
+    private void cleanConnections() {
         this.connectionsList.entrySet().removeIf(next -> System.currentTimeMillis()
                 - next.getValue() > TIME_TO_BECOME_UNAVAILABLE);
     }
