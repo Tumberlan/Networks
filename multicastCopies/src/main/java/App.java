@@ -8,11 +8,13 @@ public class App{
     private final int multicastPort = 8001;
     static private final UUID uuid = UUID.randomUUID();
     private final byte ttl = 120;
-    private final long timeForWork = 100000;
+    private final long timeForWork = 200000;
     private final int timeToReceiveMessage = 200;
-    private final long timeToBecomeUnavailable = 1000;
+    private final long timeToBecomeUnavailable = 5000;
+    private final long timeToSendMessage = 4000;
     private Long startTime;
     private int numberOfCopies = 0;
+    private long timeOfLastSending = 0;
     private HashMap<String,Long> connectionsList = new HashMap<String, Long>();
 
     public void run() {
@@ -29,9 +31,10 @@ public class App{
 
             while (workTime()){
                 boolean isReadyToSend = codeUUID(code);
-                if(isReadyToSend){
+                if(isReadyToSend && (System.currentTimeMillis() - timeOfLastSending) > timeToSendMessage ){
                     DatagramPacket sendingMulticastDatagram = new DatagramPacket(code, code.length, groupAddress, multicastPort);
                     multicastSocket.send(sendingMulticastDatagram, ttl);
+                    timeOfLastSending = System.currentTimeMillis();
                 }
                 try{
                     DatagramPacket receivedMulticastDatagram = new DatagramPacket(new byte[16], 16);
@@ -42,8 +45,7 @@ public class App{
                     if (!isUUID(decodedReceivedCode)) {
                         throw new InvalidObjectException("");
                     }
-                }catch (IOException e){
-                    e.printStackTrace();
+                }catch (IOException invalid){
                 }
 
                 String uniqueUUID = null;
