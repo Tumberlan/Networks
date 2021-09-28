@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class App {
+    private static final int SOCKET_CREATION_EXCEPTION = 1;
     private static final int MULTICAST_PORT = 8001;
     private static final UUID OWN_UUID = UUID.randomUUID();
     private static final byte TTL = 120;
@@ -19,28 +20,28 @@ public class App {
     private long timeOfLastSending = 0;
     private HashMap<String, Long> connectionsList = new HashMap<String, Long>();
 
-
     public App(String address) throws UnknownHostException {
         groupAddress = InetAddress.getByName(address);
     }
 
     public void run() {
         String decodedReceivedCode = null;
-
-
         startTime = System.currentTimeMillis();
         MulticastSocket multicastSocket = null;
+
         try {
             multicastSocket = new MulticastSocket(MULTICAST_PORT);
             multicastSocket.joinGroup(groupAddress);
             multicastSocket.setSoTimeout(TIME_TO_RECEIVE_MESSAGE);
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            System.out.println("Can't create socket");
+            System.exit(SOCKET_CREATION_EXCEPTION);
         }
 
         byte[] code;
+        code = codeUUID(OWN_UUID);
 
         while (isTimeNotRunOutStill()) {
-            code = codeUUID(OWN_UUID);
             if ((System.currentTimeMillis() - timeOfLastSending) > TIME_TO_SEND_MESSAGE) {
                 DatagramPacket sendingMulticastDatagram = new DatagramPacket(code, code.length, groupAddress, MULTICAST_PORT);
                 try {
@@ -49,31 +50,30 @@ public class App {
                 }
                 timeOfLastSending = System.currentTimeMillis();
             }
+
+            String uniqueUUID = null;
+
             try {
                 DatagramPacket receivedMulticastDatagram = new DatagramPacket(new byte[UUID_BYTE_LENGTH], UUID_BYTE_LENGTH);
                 multicastSocket.receive(receivedMulticastDatagram);
                 byte[] receivedCode = receivedMulticastDatagram.getData();
-
                 decodedReceivedCode = decodeUUID(receivedCode);
-
-            } catch (IOException invalid) {
+                if (decodedReceivedCode != null) {
+                    uniqueUUID = decodedReceivedCode;
+                }
+            } catch (IOException ignored) {
             }
 
-            String uniqueUUID = null;
-            if (decodedReceivedCode != null) {
-                uniqueUUID = decodedReceivedCode;
-            }
             cleanConnections();
-            connectionsList.put(uniqueUUID, System.currentTimeMillis());
+            if(uniqueUUID != null) {
+                connectionsList.put(uniqueUUID, System.currentTimeMillis());
+            }
             int newNumberOfCopies = connectionsList.size();
             if (newNumberOfCopies != numberOfCopies) {
                 numberOfCopies = newNumberOfCopies;
                 printCopiesList();
             }
-
         }
-
-
     }
 
     private boolean isTimeNotRunOutStill() {
