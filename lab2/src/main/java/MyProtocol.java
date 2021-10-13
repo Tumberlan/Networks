@@ -80,8 +80,8 @@ public class MyProtocol {
         }
 
         if (cycleNotEnd) {
-            long speed = bytesRead * 1000 / (System.currentTimeMillis() - startTime);
-            System.out.println("SPEED: " + speed + " BIT IN SEC");
+            long speed = bytesRead / (System.currentTimeMillis() - startTime);
+            System.out.println("SPEED: " + speed + " BIT IN "+ (System.currentTimeMillis() - startTime) + " SEC");
         }
 
         if (fileSize != bytesRead) {
@@ -115,10 +115,10 @@ public class MyProtocol {
 
     public boolean updateTime() {
         System.out.println("---------------TIME CYCLE INFORMATION---------------");
-        long speed = (bytesRead - bytesReadAtLastIteration) * 1000 / (tmpTime - previousTime);
-        System.out.println("SPEED: " + speed + " BIT IN SEC");
-        long averageSpeed = bytesRead * 1000 / (tmpTime - startTime);
-        System.out.println("AVERAGE SPEED: " + averageSpeed + " BIT IN SEC");
+        long speed = (bytesRead - bytesReadAtLastIteration) / (tmpTime - previousTime);
+        System.out.println("SPEED: " + speed + " BIT IN 3 SEC");
+        long averageSpeed = bytesRead / (tmpTime - startTime);
+        System.out.println("AVERAGE SPEED: " + averageSpeed + " BIT IN " + (tmpTime - startTime) + " SEC");
         previousTime = tmpTime;
         bytesReadAtLastIteration = bytesRead;
         return false;
