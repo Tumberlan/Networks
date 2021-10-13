@@ -45,7 +45,7 @@ public class Client {
             sendFileSize(dataOutputStream);
             sendFileContent(fileInputStream, dataInputStream, dataOutputStream);
         } catch (IOException e) {
-            System.out.println("SERVER IS ON");
+            System.out.println("SERVER IS NOT ON");
         }
     }
 

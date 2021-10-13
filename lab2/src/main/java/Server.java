@@ -16,9 +16,9 @@ public class Server {
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public void start() throws IOException {
-        System.out.println("SERVER IS STARTED");
         InetAddress address = InetAddress.getByName("localhost");
         ServerSocket serverSocket = new ServerSocket(port, BACKLOG, address);
+        System.out.println("SERVER IS STARTED");
         try {
             while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();

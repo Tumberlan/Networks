@@ -5,7 +5,6 @@ import java.net.UnknownHostException;
 
 public class Main {
 
-    private static final String SENDING_FILE_PATH = "filesToSend";
     private static final String TAKING_FILE_PATH = "receivedFiles";
 
     public static void main(String[] args) throws IOException {
