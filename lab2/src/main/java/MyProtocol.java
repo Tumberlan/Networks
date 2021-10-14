@@ -1,3 +1,6 @@
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -5,16 +8,12 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Slf4j
 public class MyProtocol {
 
     private String fileName;
     private final long fileSize;
     private File file;
-
-    private static final int NAME_SUCCESSFULLY_READ = 2;
-    private static final int FILE_SUCCESSFULLY_READ = 4;
-    private static final int NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH = 11;
-    private static final int SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE = 12;
 
     private static final int SEND_TIMING_CYCLE_TIME = 3000;
 
@@ -22,8 +21,10 @@ public class MyProtocol {
     private long tmpTime = 0;
     private long previousTime;
 
-    long bytesRead;
-    long bytesReadAtLastIteration;
+    private long bytesRead;
+    private long bytesReadAtLastIteration;
+
+    private ProtokolCodes protokolCodes = new ProtokolCodes();
     private static final String FILES_PATH = "receivedFiles";
 
     private static final int BUFFER_SIZE = 1024;
@@ -37,27 +38,29 @@ public class MyProtocol {
         takeFile(file, dataInputStream, dataOutputStream, fileSize);
     }
 
-    public int takeNameLength(DataInputStream dataInputStream) throws IOException {
+    private int takeNameLength(DataInputStream dataInputStream) throws IOException {
         int nameLength = dataInputStream.readInt();
         return nameLength;
     }
 
-    public String takeName(DataInputStream dataInputStream, DataOutputStream dataOutputStream, int nameLength) throws IOException {
+    private String takeName(DataInputStream dataInputStream, DataOutputStream dataOutputStream, int nameLength) throws IOException {
         String name = dataInputStream.readUTF();
         if (nameLength != name.length()) {
-            dataOutputStream.writeInt(NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH);
+            dataOutputStream.writeInt(protokolCodes.
+                    wrapCodeToInt(ProtokolCodes.CodeValue.NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH));
         } else {
-            dataOutputStream.writeInt(NAME_SUCCESSFULLY_READ);
+            dataOutputStream.writeInt(protokolCodes.
+                    wrapCodeToInt(ProtokolCodes.CodeValue.NAME_SUCCESSFULLY_READ));
         }
         return name;
     }
 
-    public long takeFileSize(DataInputStream dataInputStream) throws IOException {
+    private long takeFileSize(DataInputStream dataInputStream) throws IOException {
         long size = dataInputStream.readLong();
         return size;
     }
 
-    public void takeFile(File file, DataInputStream dataInputStream, DataOutputStream dataOutputStream, long fileSize) throws IOException {
+    private void takeFile(File file, DataInputStream dataInputStream, DataOutputStream dataOutputStream, long fileSize) throws IOException {
         byte[] buffer = new byte[BUFFER_SIZE];
         bytesRead = 0;
         bytesReadAtLastIteration = 0;
@@ -81,17 +84,19 @@ public class MyProtocol {
 
         if (cycleNotEnd) {
             long speed = bytesRead / (System.currentTimeMillis() - startTime);
-            System.out.println("SPEED: " + speed + " BIT IN "+ (System.currentTimeMillis() - startTime) + " SEC");
+            log.info("SPEED: " + speed + " BIT IN "+ (System.currentTimeMillis() - startTime) + " SEC");
         }
 
         if (fileSize != bytesRead) {
-            dataOutputStream.writeInt(SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE);
+            dataOutputStream.writeInt(protokolCodes.
+                    wrapCodeToInt(ProtokolCodes.CodeValue.SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE));
         } else {
-            dataOutputStream.writeInt(FILE_SUCCESSFULLY_READ);
+            dataOutputStream.writeInt(protokolCodes.
+                    wrapCodeToInt(ProtokolCodes.CodeValue.FILE_SUCCESSFULLY_READ));
         }
     }
 
-    public File createFile() throws IOException {
+    private File createFile() throws IOException {
         Path path = Paths.get(FILES_PATH);
         List<Path> paths = FileLister.listFiles(path);
         AtomicBoolean isNameTaken = new AtomicBoolean(false);
@@ -106,23 +111,22 @@ public class MyProtocol {
         return new File(FILES_PATH, fileName);
     }
 
-    public String makeUniqueName(String fileName) {
+    private String makeUniqueName(String fileName) {
         String[] subString = fileName.split("\\.");
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(subString[0]).append("_").append(UUID.randomUUID()).append(".").append(subString[1]);
         return stringBuilder.toString();
     }
 
-    public boolean updateTime() {
-        System.out.println("---------------TIME CYCLE INFORMATION---------------");
+    private boolean updateTime() {
+        log.info("---------------TIME CYCLE INFORMATION---------------");
         long speed = (bytesRead - bytesReadAtLastIteration) / (tmpTime - previousTime);
-        System.out.println("SPEED: " + speed + " BIT IN 3 SEC");
+        log.info("SPEED: " + speed + " BIT IN 3 SEC");
         long averageSpeed = bytesRead / (tmpTime - startTime);
-        System.out.println("AVERAGE SPEED: " + averageSpeed + " BIT IN " + (tmpTime - startTime) + " SEC");
+        log.info("AVERAGE SPEED: " + averageSpeed + " BIT IN " + (tmpTime - startTime) + " SEC");
         previousTime = tmpTime;
         bytesReadAtLastIteration = bytesRead;
         return false;
     }
-
 
 }

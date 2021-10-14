@@ -8,10 +8,6 @@ import java.util.stream.Stream;
 public class FileLister {
     public static List<Path> listFiles(Path path) throws IOException {
 
-        List<Path> result;
-        try (Stream<Path> walk = Files.walk(path)) {
-            result = walk.filter(Files::isRegularFile).collect(Collectors.toList());
-        }
-        return result;
+        return Files.walk(path).filter(Files::isRegularFile).collect(Collectors.toList());
     }
 }

@@ -1,9 +1,13 @@
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+@Slf4j
 public class Cleaner {
 
     private String pathToTmpDirectory;
@@ -22,5 +26,7 @@ public class Cleaner {
             File newFile = new File(file.getAbsolutePath());
             newFile.delete();
         });
+        log.info("RECEIVING DIRECTORY IS CLEANED");
     }
+
 }

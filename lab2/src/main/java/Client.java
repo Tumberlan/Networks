@@ -1,4 +1,6 @@
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -8,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @AllArgsConstructor
+@Slf4j
 public class Client {
 
     private final InetAddress IPAddress;
@@ -19,9 +22,7 @@ public class Client {
     private static final int NO_DATA_TO_SEND = 0;
     private static final int STARTING_BUFFER_POINT = 0;
 
-    private static final int FILE_SUCCESSFULLY_READ = 4;
-    private static final int NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH = 11;
-    private static final int SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE = 12;
+    private final ProtokolCodes protokolCodes = new ProtokolCodes();
 
 
     public Client(InetAddress inetAddress, int port, String pathToFile) {
@@ -33,7 +34,7 @@ public class Client {
 
     public void run() {
         try {
-            System.out.println("FILE TRANSFER IS STARTED");
+            log.info("FILE TRANSFER IS STARTED");
             Socket clientSocket = new Socket(this.IPAddress, port);
             FileInputStream fileInputStream = new FileInputStream(pathToFile);
             DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
@@ -45,7 +46,7 @@ public class Client {
             sendFileSize(dataOutputStream);
             sendFileContent(fileInputStream, dataInputStream, dataOutputStream);
         } catch (IOException e) {
-            System.out.println("SERVER IS NOT ON");
+            log.error("SERVER IS NOT ON");
         }
     }
 
@@ -57,7 +58,8 @@ public class Client {
         dataOutputStream.flush();
 
         int response = dataInputStream.readInt();
-        if (response == NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH) {
+        if (response == protokolCodes.
+                wrapCodeToInt(ProtokolCodes.CodeValue.NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH)) {
             return false;
         }
         return true;
@@ -79,10 +81,13 @@ public class Client {
         }
 
         int response = dataInputStream.readInt();
-        if (response == SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE) {
+        if (response == protokolCodes.
+                wrapCodeToInt(ProtokolCodes.CodeValue.SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE)) {
+            log.info("SIZE OF FILE DOES NOT MATCH WITH FILE SIZE");
             return;
-        } else if (response == FILE_SUCCESSFULLY_READ) {
-            System.out.println("FILE SUCCESSFULLY READ");
+        } else if (response == protokolCodes.
+                wrapCodeToInt(ProtokolCodes.CodeValue.FILE_SUCCESSFULLY_READ)) {
+            log.info("FILE SUCCESSFULLY READ");
         }
     }
 }
