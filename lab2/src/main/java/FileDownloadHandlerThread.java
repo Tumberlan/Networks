@@ -17,7 +17,6 @@ public class FileDownloadHandlerThread implements Runnable {
     public void run() {
         DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-
         MyProtocol newProtocol = new MyProtocol(dataInputStream, dataOutputStream);
         log.info("CLIENT " + clientID + " ENDED TRANSFER");
     }

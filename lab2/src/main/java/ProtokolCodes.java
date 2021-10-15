@@ -1,14 +1,14 @@
 public class ProtokolCodes {
 
-    public enum CodeValue{
+    public enum CodeValue {
         NAME_SUCCESSFULLY_READ,
         FILE_SUCCESSFULLY_READ,
         NAME_DOES_NOT_MATCH_WITH_NAME_LENGTH,
         SIZE_OF_FILE_DOES_NOT_MATCH_WITH_FILE_SIZE
     }
 
-    public int wrapCodeToInt(CodeValue codeValue){
-        switch (codeValue){
+    public int wrapCodeToInt(CodeValue codeValue) {
+        switch (codeValue) {
             case NAME_SUCCESSFULLY_READ -> {
                 return 0;
             }

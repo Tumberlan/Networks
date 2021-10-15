@@ -8,8 +8,11 @@ import java.net.UnknownHostException;
 public class Main {
 
     private static final String TAKING_FILE_PATH = "receivedFiles";
+    private static final String CLEANER_COMMAND = "clean";
     private static final int TYPE_OF_PROGRAM_NUMBER_OF_ARGS = 1;
     private static final int SERVER_START_NUMBER_OF_ARGS = 2;
+    private static final int SERVER_START_AND_CLEAN_NUMBER_OF_ARGS = 3;
+    private static final int SERVER_CLEAN_ARGS_POSITION = 2;
     private static final int CLIENT_START_NUMBER_OF_ARGS = 4;
     private static final int SWITCHER_ARGS_POSITION = 0;
     private static final int CLIENT_IP_ARGS_POSITION = 1;
@@ -19,8 +22,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-
-        if(TYPE_OF_PROGRAM_NUMBER_OF_ARGS > args.length){
+        if (TYPE_OF_PROGRAM_NUMBER_OF_ARGS > args.length) {
             log.error("LESS ARGUMENTS");
             return;
         }
@@ -34,11 +36,11 @@ public class Main {
     }
 
     private static void startClient(String[] args, PreStartChecker preStartChecker) throws UnknownHostException {
-        if(CLIENT_START_NUMBER_OF_ARGS > args.length){
+        if (CLIENT_START_NUMBER_OF_ARGS != args.length) {
             log.error("LESS ARGUMENTS TO START CLIENT");
             return;
         }
-        if(!preStartChecker.canClientStart()){
+        if (!preStartChecker.canClientStart()) {
             return;
         }
         InetAddress address = InetAddress.getByName(args[CLIENT_IP_ARGS_POSITION]);
@@ -48,15 +50,24 @@ public class Main {
     }
 
     private static void startServer(String[] args, PreStartChecker preStartChecker) throws IOException {
-        if(SERVER_START_NUMBER_OF_ARGS > args.length){
+        boolean withClean = false;
+        if (SERVER_START_AND_CLEAN_NUMBER_OF_ARGS == args.length) {
+            if (CLEANER_COMMAND.equals(args[SERVER_CLEAN_ARGS_POSITION])) {
+                Cleaner cleaner = new Cleaner(TAKING_FILE_PATH);
+                cleaner.clean();
+                withClean = true;
+            }
+
+        }
+
+        if (SERVER_START_NUMBER_OF_ARGS != args.length && !withClean) {
             log.error("LESS ARGUMENTS TO START SERVER");
             return;
         }
-        if(!preStartChecker.canServerStart()){
+
+        if (!preStartChecker.canServerStart()) {
             return;
         }
-        Cleaner cleaner = new Cleaner(TAKING_FILE_PATH);
-        cleaner.clean();
         Server server = new Server(Integer.parseInt(args[SERVER_PORT_ARGS_POSITION]));
         server.start();
     }

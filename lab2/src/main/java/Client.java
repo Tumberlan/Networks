@@ -1,5 +1,4 @@
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -12,18 +11,15 @@ import java.nio.file.Paths;
 @AllArgsConstructor
 @Slf4j
 public class Client {
+    private static final int BUFFER_SIZE = 1024;
+    private static final int NO_DATA_TO_SEND = 0;
+    private static final int STARTING_BUFFER_POINT = 0;
 
     private final InetAddress IPAddress;
     private final int port;
     private final String pathToFile;
     private final Path path;
-
-    private static final int BUFFER_SIZE = 1024;
-    private static final int NO_DATA_TO_SEND = 0;
-    private static final int STARTING_BUFFER_POINT = 0;
-
     private final ProtokolCodes protokolCodes = new ProtokolCodes();
-
 
     public Client(InetAddress inetAddress, int port, String pathToFile) {
         this.IPAddress = inetAddress;

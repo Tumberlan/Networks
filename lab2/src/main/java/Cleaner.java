@@ -1,4 +1,3 @@
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -9,16 +8,13 @@ import java.util.List;
 
 @Slf4j
 public class Cleaner {
-
     private String pathToTmpDirectory;
 
     public Cleaner(String pathToTDirectory) {
         this.pathToTmpDirectory = pathToTDirectory;
     }
 
-
     public void clean() throws IOException {
-
         Path path = Paths.get(pathToTmpDirectory);
         List<Path> paths = FileLister.listFiles(path);
         paths.forEach(x -> {
@@ -28,5 +24,4 @@ public class Cleaner {
         });
         log.info("RECEIVING DIRECTORY IS CLEANED");
     }
-
 }

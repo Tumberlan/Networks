@@ -1,6 +1,4 @@
 import lombok.AllArgsConstructor;
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -14,9 +12,9 @@ import java.util.concurrent.Executors;
 @AllArgsConstructor
 @Slf4j
 public class Server {
-    private final int port;
     private static final int BACKLOG = 100;
 
+    private final int port;
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public void start() throws IOException {
