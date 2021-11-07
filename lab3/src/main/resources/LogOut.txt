@@ -324,3 +324,159 @@
 06-11-2021 19:45:08 DEBUG wire:73 - http-outgoing-0 << "]|[0xe][0xed][0xe5]R[0xa1]e[0x87][0x8b][0x8c]T[0x9b][0x8c][\n]"
 06-11-2021 19:45:08 DEBUG wire:73 - http-outgoing-0 << "+[0x8d][0x7]g[0x8b][0xde]0u[0x9e]+[0xc1]k[0xad]0[0xbd]u[0xc1]8[0x9a]<[0xb3][0xdf][0x94]p[0xd1]y[0x84][0xe1][0x8c][0x86][0xa4][0x93]4[0xd3][0x6][0x15]7[0x92][0xfc][0xb5]J&[0x83][0xe6][0x91]Q[0x1b][0x1b]d[0x7][0x8f][0xac][0xd0][0xb5][0xb6].[0x9c][0x8c][0xa5])[0xd9]u86[0x94][0x1f];`?[0xbf][0xda][0xb5][0xff][0xdb][0x92]==MX[0xad]K[0x1d]U[0xf]oP[0x96][0x95]'[0xfd][0xfe]lf[0x1e][0xd8]$[0xc8]>[0x5]t[0xc][0xa2][0xe0][0x80][0xf][0x86][0xd2][0xbf]@ghv[0xe8][0xa2][0x8e][0x8c]-~i[0x9][0xb9][0xe2][0xdc]j[0xe3]^K[0xeb]([0x92][0xb7]-Nb[0xd5][0x1f]/[0xde][0x92][0xe9][0x8f][0x1a][0xf0][0xb4][0xcd]_[0xf4][0xb4]HK[0xf4][0xa7][0x11][0x5]G[0xeb]31[0xfa][0xae][0xc3][0xe3][0xde]e<[0xdf][0x8c][0xab][0xef][0xda][0x96]&[0xef][0xb8][0xd7][0x8d][0xde]AF[0x9c]C[0xc4][0xad][0xc7][0x7][0x9f][0xdd][0xf2][0x15][0x8f][0xd2][0x1e][0xed][0xe7]g[0x9f][0xce][0xfe][0x82][0x1c][0x96][0xbc]v[0x18]#[0xcb]%[0x8c]:[0xf1]x[0x0][0xd2][0x8a][[0xf8]l[0xf8][0x17]2[0xbc][0x97]J[0xe8][0xfb][0xb4][0xbb]}[0xfd][\n]"
 06-11-2021 19:45:08 DEBUG wire:87 - http-outgoing-0 << "W[0xd7][0x1b][0x14]e/[0xc1][^[0xdc][0x11]J[0x89][0x8a][0x95][0x16][0xe]jy[0x87][0xc0][0x1c][0xfa][0xe3][0xd6]Qf'[0x92][0xaa]s2P[0x89][0x98][0xd5][0xd6][0x2]n[0x10][0x88]{5[0x86][0x13][0x91][0x9b][0x8c][0xbb][0x10][0xe7][0xc4][0xb0][0x88][0xc3][0xc]^f}[0xf4][0xf0]^jZW[0x8d][0xae][0x92]g6[0xc9][0xf5]x[0xfe][0x3][0x1b][0xc2][0xca]M[0x8d]o[0x89][0xca][0x97][0xc1][0x9a][0x0][0xbf]c8Z[0xb6][0xaa][7[0xa3][0xf1][0xe]WB[0x91]m[0xce][0xb2][0xac][0xe9][0xda][0x98][0x96]aAU[0xdd][0x82]J[0xb][0xdd]dl[0xcb][0xa1][0xdd][0x97][0xa8][0xbc][0xcb]X[0xf7]G['[0x13]hM[0xfa][0x0][0xa6]2;[0x8f]~[0xe7][0xf5]Az<[0x13][0xe4][0x91][0xec]=3[0xb]y[0x88]|[0x83][0x8b][0x9][0x94][0xb9]H[0xb][0x8b][0xdc]c[0x8f][0x8f]Q[0x12]G[0x98][0x8c]'[0xe0]H[0xb9]E[0x8e];Z_[0xf2][0xf2]=-[0xc1][0xad][0xcd][0xd5][0xec]z[0x1b][0xbb]L;0$[0xff][0x1]C2'[\r]wkU[0xe4][0x1][0xbf][0xe1]F[0x9b][0x7][0xed]p[0xb]T[0xde][0x16]v[0xeb][0xc8][0xc1][0xa5]qw[0xbd][0xd7][0x2][0x89][0xad][0xb4][0x9d][0xfc]Q7[0xc4]Q9qC9O[0xe3]Q[0x1e][0xb6][0xcc].[0xf3][0x95][0xee][0xaf][0xb]s[0xb8][0x90]M[0x19]wF[0xe5][0xbd]q[0x7][0xff];[0x88]m{[0x97][0xc2]Q[0x17][0xf3][0xbd]_xc[0xe6][0xf4][\r][0xa1]-[0x1e]wd[0xce]n[0xb4][0x15]h[0xf]fs[0x6][0xbc][0xa6]/[0x0][0xcb]h[0xed][0xd0]+[0xd9][0xf0][0xe6][0x96]8[0xa7]Jl[0xc8]sL[0xe5][0xf4][0xc]Zdq[0xf1][0xd1]&[0xec][0xbe]j[0xdf][0x0][0xc0]g[0xa6][0xee][0xed][0x6][0x0][0x0]"
+06-11-2021 20:41:33 DEBUG RequestAddCookies:123 - CookieSpec selected: default
+06-11-2021 20:41:33 DEBUG RequestAuthCache:77 - Auth cache not set in the context
+06-11-2021 20:41:33 DEBUG PoolingHttpClientConnectionManager:267 - Connection request: [route: {s}->https://graphhopper.com:443][total available: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+06-11-2021 20:41:33 DEBUG PoolingHttpClientConnectionManager:312 - Connection leased: [id: 0][route: {s}->https://graphhopper.com:443][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+06-11-2021 20:41:33 DEBUG MainClientExec:234 - Opening connection {s}->https://graphhopper.com:443
+06-11-2021 20:41:33 DEBUG DefaultHttpClientConnectionOperator:139 - Connecting to graphhopper.com/5.9.203.233:443
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:366 - Connecting socket to graphhopper.com/5.9.203.233:443 with timeout 0
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:430 - Enabled protocols: [TLSv1.3, TLSv1.2]
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:431 - Enabled cipher suites:[TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_GCM_SHA384, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:435 - Starting handshake
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:465 - Secure session established
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:466 -  negotiated protocol: TLSv1.3
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:467 -  negotiated cipher suite: TLS_AES_256_GCM_SHA384
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:475 -  peer principal: CN=*.graphhopper.com
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:484 -  peer alternative names: [*.graphhopper.com, graphhopper.com]
+06-11-2021 20:41:33 DEBUG SSLConnectionSocketFactory:488 -  issuer principal: CN=Thawte TLS RSA CA G1, OU=www.digicert.com, O=DigiCert Inc, C=US
+06-11-2021 20:41:33 DEBUG DefaultHttpClientConnectionOperator:146 - Connection established 192.168.0.104:64139<->5.9.203.233:443
+06-11-2021 20:41:33 DEBUG MainClientExec:255 - Executing request GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1
+06-11-2021 20:41:33 DEBUG MainClientExec:260 - Target auth state: UNCHALLENGED
+06-11-2021 20:41:33 DEBUG MainClientExec:266 - Proxy auth state: UNCHALLENGED
+06-11-2021 20:41:33 DEBUG headers:133 - http-outgoing-0 >> GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1
+06-11-2021 20:41:33 DEBUG headers:136 - http-outgoing-0 >> Host: graphhopper.com
+06-11-2021 20:41:33 DEBUG headers:136 - http-outgoing-0 >> Connection: Keep-Alive
+06-11-2021 20:41:33 DEBUG headers:136 - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.13 (Java/16.0.2)
+06-11-2021 20:41:33 DEBUG headers:136 - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 >> "GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 >> "Host: graphhopper.com[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/16.0.2)[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 >> "[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "HTTP/1.1 401 Unauthorized[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "Server: nginx[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "Date: Sat, 06 Nov 2021 13:41:34 GMT[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "Content-Type: application/json;charset=utf-8[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "Content-Length: 108[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:73 - http-outgoing-0 << "[\r][\n]"
+06-11-2021 20:41:33 DEBUG wire:87 - http-outgoing-0 << "{"message":"Wrong credentials. Register and get a valid API key at https://www.graphhopper.com/developers/"}"
+06-11-2021 20:41:33 DEBUG headers:122 - http-outgoing-0 << HTTP/1.1 401 Unauthorized
+06-11-2021 20:41:33 DEBUG headers:125 - http-outgoing-0 << Server: nginx
+06-11-2021 20:41:33 DEBUG headers:125 - http-outgoing-0 << Date: Sat, 06 Nov 2021 13:41:34 GMT
+06-11-2021 20:41:33 DEBUG headers:125 - http-outgoing-0 << Content-Type: application/json;charset=utf-8
+06-11-2021 20:41:33 DEBUG headers:125 - http-outgoing-0 << Content-Length: 108
+06-11-2021 20:41:33 DEBUG headers:125 - http-outgoing-0 << Connection: keep-alive
+06-11-2021 20:41:33 DEBUG MainClientExec:285 - Connection can be kept alive indefinitely
+06-11-2021 20:41:33 DEBUG HttpAuthenticator:77 - Authentication required
+06-11-2021 20:41:33 DEBUG HttpAuthenticator:106 - graphhopper.com:443 requested authentication
+06-11-2021 20:41:33 DEBUG HttpAuthenticator:110 - Response contains no authentication challenges
+06-11-2021 20:41:33 DEBUG PoolingHttpClientConnectionManager:344 - Connection [id: 0][route: {s}->https://graphhopper.com:443] can be kept alive indefinitely
+06-11-2021 20:41:33 DEBUG DefaultManagedHttpClientConnection:88 - http-outgoing-0: set socket timeout to 0
+06-11-2021 20:41:33 DEBUG PoolingHttpClientConnectionManager:351 - Connection released: [id: 0][route: {s}->https://graphhopper.com:443][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+06-11-2021 20:43:14 DEBUG RequestAddCookies:123 - CookieSpec selected: default
+06-11-2021 20:43:14 DEBUG RequestAuthCache:77 - Auth cache not set in the context
+06-11-2021 20:43:14 DEBUG PoolingHttpClientConnectionManager:267 - Connection request: [route: {s}->https://graphhopper.com:443][total available: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+06-11-2021 20:43:14 DEBUG PoolingHttpClientConnectionManager:312 - Connection leased: [id: 0][route: {s}->https://graphhopper.com:443][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+06-11-2021 20:43:14 DEBUG MainClientExec:234 - Opening connection {s}->https://graphhopper.com:443
+06-11-2021 20:43:14 DEBUG DefaultHttpClientConnectionOperator:139 - Connecting to graphhopper.com/5.9.203.233:443
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:366 - Connecting socket to graphhopper.com/5.9.203.233:443 with timeout 0
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:430 - Enabled protocols: [TLSv1.3, TLSv1.2]
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:431 - Enabled cipher suites:[TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_GCM_SHA384, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:435 - Starting handshake
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:465 - Secure session established
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:466 -  negotiated protocol: TLSv1.3
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:467 -  negotiated cipher suite: TLS_AES_256_GCM_SHA384
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:475 -  peer principal: CN=*.graphhopper.com
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:484 -  peer alternative names: [*.graphhopper.com, graphhopper.com]
+06-11-2021 20:43:14 DEBUG SSLConnectionSocketFactory:488 -  issuer principal: CN=Thawte TLS RSA CA G1, OU=www.digicert.com, O=DigiCert Inc, C=US
+06-11-2021 20:43:14 DEBUG DefaultHttpClientConnectionOperator:146 - Connection established 192.168.0.104:58596<->5.9.203.233:443
+06-11-2021 20:43:14 DEBUG MainClientExec:255 - Executing request GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1
+06-11-2021 20:43:14 DEBUG MainClientExec:260 - Target auth state: UNCHALLENGED
+06-11-2021 20:43:14 DEBUG MainClientExec:266 - Proxy auth state: UNCHALLENGED
+06-11-2021 20:43:14 DEBUG headers:133 - http-outgoing-0 >> GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1
+06-11-2021 20:43:14 DEBUG headers:136 - http-outgoing-0 >> Host: graphhopper.com
+06-11-2021 20:43:14 DEBUG headers:136 - http-outgoing-0 >> Connection: Keep-Alive
+06-11-2021 20:43:14 DEBUG headers:136 - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.13 (Java/16.0.2)
+06-11-2021 20:43:14 DEBUG headers:136 - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 >> "GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 >> "Host: graphhopper.com[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/16.0.2)[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 >> "[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "HTTP/1.1 401 Unauthorized[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "Server: nginx[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "Date: Sat, 06 Nov 2021 13:43:15 GMT[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "Content-Type: application/json;charset=utf-8[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "Content-Length: 108[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:73 - http-outgoing-0 << "[\r][\n]"
+06-11-2021 20:43:14 DEBUG wire:87 - http-outgoing-0 << "{"message":"Wrong credentials. Register and get a valid API key at https://www.graphhopper.com/developers/"}"
+06-11-2021 20:43:14 DEBUG headers:122 - http-outgoing-0 << HTTP/1.1 401 Unauthorized
+06-11-2021 20:43:14 DEBUG headers:125 - http-outgoing-0 << Server: nginx
+06-11-2021 20:43:14 DEBUG headers:125 - http-outgoing-0 << Date: Sat, 06 Nov 2021 13:43:15 GMT
+06-11-2021 20:43:14 DEBUG headers:125 - http-outgoing-0 << Content-Type: application/json;charset=utf-8
+06-11-2021 20:43:14 DEBUG headers:125 - http-outgoing-0 << Content-Length: 108
+06-11-2021 20:43:14 DEBUG headers:125 - http-outgoing-0 << Connection: keep-alive
+06-11-2021 20:43:14 DEBUG MainClientExec:285 - Connection can be kept alive indefinitely
+06-11-2021 20:43:14 DEBUG HttpAuthenticator:77 - Authentication required
+06-11-2021 20:43:14 DEBUG HttpAuthenticator:106 - graphhopper.com:443 requested authentication
+06-11-2021 20:43:14 DEBUG HttpAuthenticator:110 - Response contains no authentication challenges
+06-11-2021 20:43:14 DEBUG PoolingHttpClientConnectionManager:344 - Connection [id: 0][route: {s}->https://graphhopper.com:443] can be kept alive indefinitely
+06-11-2021 20:43:14 DEBUG DefaultManagedHttpClientConnection:88 - http-outgoing-0: set socket timeout to 0
+06-11-2021 20:43:14 DEBUG PoolingHttpClientConnectionManager:351 - Connection released: [id: 0][route: {s}->https://graphhopper.com:443][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+06-11-2021 21:04:07 DEBUG RequestAddCookies:123 - CookieSpec selected: default
+06-11-2021 21:04:07 DEBUG RequestAuthCache:77 - Auth cache not set in the context
+06-11-2021 21:04:07 DEBUG PoolingHttpClientConnectionManager:267 - Connection request: [route: {s}->https://graphhopper.com:443][total available: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+06-11-2021 21:04:07 DEBUG PoolingHttpClientConnectionManager:312 - Connection leased: [id: 0][route: {s}->https://graphhopper.com:443][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+06-11-2021 21:04:07 DEBUG MainClientExec:234 - Opening connection {s}->https://graphhopper.com:443
+06-11-2021 21:04:07 DEBUG DefaultHttpClientConnectionOperator:139 - Connecting to graphhopper.com/5.9.203.233:443
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:366 - Connecting socket to graphhopper.com/5.9.203.233:443 with timeout 0
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:430 - Enabled protocols: [TLSv1.3, TLSv1.2]
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:431 - Enabled cipher suites:[TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_GCM_SHA384, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:435 - Starting handshake
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:465 - Secure session established
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:466 -  negotiated protocol: TLSv1.3
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:467 -  negotiated cipher suite: TLS_AES_256_GCM_SHA384
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:475 -  peer principal: CN=*.graphhopper.com
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:484 -  peer alternative names: [*.graphhopper.com, graphhopper.com]
+06-11-2021 21:04:07 DEBUG SSLConnectionSocketFactory:488 -  issuer principal: CN=Thawte TLS RSA CA G1, OU=www.digicert.com, O=DigiCert Inc, C=US
+06-11-2021 21:04:07 DEBUG DefaultHttpClientConnectionOperator:146 - Connection established 192.168.0.104:62811<->5.9.203.233:443
+06-11-2021 21:04:07 DEBUG MainClientExec:255 - Executing request GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1
+06-11-2021 21:04:07 DEBUG MainClientExec:260 - Target auth state: UNCHALLENGED
+06-11-2021 21:04:07 DEBUG MainClientExec:266 - Proxy auth state: UNCHALLENGED
+06-11-2021 21:04:07 DEBUG headers:133 - http-outgoing-0 >> GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1
+06-11-2021 21:04:07 DEBUG headers:136 - http-outgoing-0 >> Host: graphhopper.com
+06-11-2021 21:04:07 DEBUG headers:136 - http-outgoing-0 >> Connection: Keep-Alive
+06-11-2021 21:04:07 DEBUG headers:136 - http-outgoing-0 >> User-Agent: Apache-HttpClient/4.5.13 (Java/16.0.2)
+06-11-2021 21:04:07 DEBUG headers:136 - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 >> "GET /api/1/geocode?q=berlin&locale=de&debug=true&key=api_key HTTP/1.1[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 >> "Host: graphhopper.com[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/16.0.2)[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 >> "[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "HTTP/1.1 401 Unauthorized[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "Server: nginx[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "Date: Sat, 06 Nov 2021 14:04:08 GMT[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "Content-Type: application/json;charset=utf-8[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "Content-Length: 108[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:73 - http-outgoing-0 << "[\r][\n]"
+06-11-2021 21:04:07 DEBUG wire:87 - http-outgoing-0 << "{"message":"Wrong credentials. Register and get a valid API key at https://www.graphhopper.com/developers/"}"
+06-11-2021 21:04:07 DEBUG headers:122 - http-outgoing-0 << HTTP/1.1 401 Unauthorized
+06-11-2021 21:04:07 DEBUG headers:125 - http-outgoing-0 << Server: nginx
+06-11-2021 21:04:07 DEBUG headers:125 - http-outgoing-0 << Date: Sat, 06 Nov 2021 14:04:08 GMT
+06-11-2021 21:04:07 DEBUG headers:125 - http-outgoing-0 << Content-Type: application/json;charset=utf-8
+06-11-2021 21:04:07 DEBUG headers:125 - http-outgoing-0 << Content-Length: 108
+06-11-2021 21:04:07 DEBUG headers:125 - http-outgoing-0 << Connection: keep-alive
+06-11-2021 21:04:07 DEBUG MainClientExec:285 - Connection can be kept alive indefinitely
+06-11-2021 21:04:07 DEBUG HttpAuthenticator:77 - Authentication required
+06-11-2021 21:04:07 DEBUG HttpAuthenticator:106 - graphhopper.com:443 requested authentication
+06-11-2021 21:04:07 DEBUG HttpAuthenticator:110 - Response contains no authentication challenges
+06-11-2021 21:04:07 DEBUG PoolingHttpClientConnectionManager:344 - Connection [id: 0][route: {s}->https://graphhopper.com:443] can be kept alive indefinitely
+06-11-2021 21:04:07 DEBUG DefaultManagedHttpClientConnection:88 - http-outgoing-0: set socket timeout to 0
+06-11-2021 21:04:07 DEBUG PoolingHttpClientConnectionManager:351 - Connection released: [id: 0][route: {s}->https://graphhopper.com:443][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
