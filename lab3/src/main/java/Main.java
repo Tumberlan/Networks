@@ -9,6 +9,6 @@ public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
         //MainFrame mainFrame = new MainFrame();
         PossibleVariantsLoader possibleVariantsLoader = new PossibleVariantsLoader();
-        possibleVariantsLoader.printAll();
+        possibleVariantsLoader.printAll(true);
     }
 }
