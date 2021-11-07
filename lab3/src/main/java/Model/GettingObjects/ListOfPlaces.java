@@ -1,4 +1,13 @@
 package Model.GettingObjects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
 public class ListOfPlaces {
+    private @JsonProperty("places") List<Place> placeList;
 }

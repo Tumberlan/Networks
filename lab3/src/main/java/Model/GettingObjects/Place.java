@@ -2,7 +2,11 @@ package Model.GettingObjects;
 
 import Model.GeoPosition;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Place {
     private String name;
     private String country;
@@ -10,7 +14,7 @@ public class Place {
     private String region;
     private String continent;
     private String street;
-    private @JsonProperty("housenumber") String houseNumber;
-    private @JsonProperty("countrycode") String countryCode;
-    private @JsonProperty("point") GeoPosition position;
+    private @JsonProperty("houseNumber") String houseNumber;
+    private @JsonProperty("countryCode") String countryCode;
+    private @JsonProperty("position") GeoPosition position;
 }
