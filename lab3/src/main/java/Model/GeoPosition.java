@@ -6,7 +6,8 @@ import lombok.Setter;
 
 import java.util.Locale;
 
-@Getter @Setter
+@Getter
+@Setter
 public class GeoPosition {
     private @JsonAlias("lat")
     double lat;

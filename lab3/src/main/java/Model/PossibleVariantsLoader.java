@@ -26,7 +26,8 @@ public class PossibleVariantsLoader {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("https://graphhopper.com/api/1/geocode?q=").
                 append(inputAddress.toLowerCase(Locale.ROOT)).
-                append("&locale=de&debug=true&key=api_key");
+                append("&locale=").append("en").append("&debug=true&key=")
+                .append("161b9191-04f3-42c5-a14e-ad7475471c70");
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
@@ -37,7 +38,8 @@ public class PossibleVariantsLoader {
         stringBuilder.append("https://api.opentripmap.com/0.1/").append(language).
                 append("/places/radius?radius=").append(radius).append("&lon=").
                 append(geoPosition.getLon()).append("&lat=").append(geoPosition.getLat()).
-                append("&format=json&limit=").append(LIMIT_VALUE);
+                append("&format=json&limit=").append(LIMIT_VALUE).append("&apikey=").
+                append("5ae2e3f221c38a28845f05b67c3a04e20354ee205d9477ba49661b86");
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
@@ -56,29 +58,6 @@ public class PossibleVariantsLoader {
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
-    public void printAll(boolean isRussian) throws IOException {
-
-        String language;
-        if (isRussian) {
-            language = "ru";
-        } else {
-            language = "en";
-        }
-        GeoPosition geoPosition = new GeoPosition();
-
-        Request variantsRequest = loadVariants("Berlin");
-        Request placeListRequest = loadPlaceList(language, 50, geoPosition);
-        Request placeDescriptorRequest = loadPlaceDescription(language, "berlin");
-        Request placeWeatherRequest = loadPlaceWeather(geoPosition);
-        System.out.println(variantsRequest);
-        System.out.println("------------------------------------------------------------------------");
-        System.out.println(placeListRequest);
-        System.out.println("------------------------------------------------------------------------");
-        System.out.println(placeDescriptorRequest);
-        System.out.println("------------------------------------------------------------------------");
-        System.out.println(placeWeatherRequest);
-    }
-
     public Response requestReleaser(Request request){
         Call call = client.newCall(request);
         Response response = null;
@@ -87,7 +66,6 @@ public class PossibleVariantsLoader {
         } catch (IOException e) {
             log.error("No response for your request");
         }
-
         return response;
     }
 

@@ -480,3 +480,6 @@
 06-11-2021 21:04:07 DEBUG PoolingHttpClientConnectionManager:344 - Connection [id: 0][route: {s}->https://graphhopper.com:443] can be kept alive indefinitely
 06-11-2021 21:04:07 DEBUG DefaultManagedHttpClientConnection:88 - http-outgoing-0: set socket timeout to 0
 06-11-2021 21:04:07 DEBUG PoolingHttpClientConnectionManager:351 - Connection released: [id: 0][route: {s}->https://graphhopper.com:443][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+09-11-2021 19:56:26 ERROR AppLogic:35 - can't parse value to JSon
+09-11-2021 19:57:07 ERROR AppLogic:35 - can't parse value to JSon
+09-11-2021 20:17:06 ERROR AppLogic:35 - can't parse value to JSon
