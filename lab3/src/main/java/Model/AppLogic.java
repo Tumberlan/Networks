@@ -17,7 +17,6 @@ public class AppLogic {
 
     private static final PossibleVariantsLoader POSSIBLE_VARIANTS_LOADER = new PossibleVariantsLoader();
     private static final JsonParser JSON_PARSER = new JsonParser();
-
     public ListOfPlaces listOfAddressResponse(String address, String language){
         Response response = POSSIBLE_VARIANTS_LOADER.requestReleaser(
                 POSSIBLE_VARIANTS_LOADER.loadVariants(address));
@@ -27,6 +26,7 @@ public class AppLogic {
         } catch (IOException e) {
             log.error("can't take response message");
         }
+        System.out.println(response);
         System.out.println(responseText);
         ListOfPlaces newListOfPlaces = JSON_PARSER.parse(responseText, ListOfPlaces.class);
         System.out.println(newListOfPlaces);

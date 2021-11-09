@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
         AppLogic appLogic = new AppLogic();
-        ListOfPlaces listOfPlaces = appLogic.listOfAddressResponse("Novosibirsk theatre",
+        ListOfPlaces listOfPlaces = appLogic.listOfAddressResponse("Москва",
                 "en");
         appLogic.placeListLoadResponse("ru", "14", listOfPlaces);
     }
