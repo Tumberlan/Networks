@@ -7,9 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PlaceDescription {
+public class XidPlace {
     private String xid;
     private String name;
-    private Info info;
-    private @JsonProperty("wikipedia_extracts") WikiInfo wikiInfo;
+    private String kinds;
+    private @JsonProperty("point") GeoPosition position;
 }

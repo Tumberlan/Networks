@@ -1,5 +1,6 @@
 package Model;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
@@ -15,4 +16,10 @@ public class JsonParser {
     public<T> T parse(String JsonResponse, Class<T> tClass){
         return MAPPER.readValue(JsonResponse, tClass);
     }
+
+    @SneakyThrows
+    public<T> T parse(String JsonResponse, TypeReference<T> tRef){
+        return MAPPER.readValue(JsonResponse, tRef);
+    }
+
 }

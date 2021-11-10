@@ -13,12 +13,4 @@ public class GeoPosition {
     double lat;
     private @JsonAlias({"lng", "lon"})
     double lon;
-
-    public String getStringLat() {
-        return String.format(Locale.US, "%f", lat);
-    }
-
-    public String getStringLon() {
-        return String.format(Locale.US, "%f", lon);
-    }
 }

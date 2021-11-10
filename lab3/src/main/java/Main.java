@@ -1,19 +1,22 @@
 import Model.AppLogic;
 import Model.GettingObjects.ListOfPlaces;
-import Model.PossibleVariantsLoader;
-import View.MainFrame;
-import okhttp3.Request;
-import okhttp3.Response;
+import Model.GettingObjects.XidPlace;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
         AppLogic appLogic = new AppLogic();
-        ListOfPlaces listOfPlaces = appLogic.listOfAddressResponse("Москва",
-                "en");
-        appLogic.placeListLoadResponse("ru", "14", listOfPlaces);
+        ListOfPlaces listOfPlaces = appLogic.listOfAddressResponse("en","Москва");
+        List<XidPlace> xidList = appLogic.placeListLoadResponse("ru", "14", listOfPlaces);
+        xidList.forEach(x->{
+            System.out.println(x.getName());
+            System.out.println(x.getXid());
+        });
+        appLogic.takeDescription("ru", xidList);
+        appLogic.takeWeather("ru", listOfPlaces);
     }
 }

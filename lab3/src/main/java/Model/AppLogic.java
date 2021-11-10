@@ -1,25 +1,22 @@
 package Model;
 
-import Model.GettingObjects.ListOfPlaces;
-import Model.GettingObjects.Place;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import Model.GettingObjects.*;
+import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.Address;
 import okhttp3.Response;
 
 import java.io.IOException;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
+import java.util.LinkedList;
+import java.util.List;
 
 @Slf4j
 public class AppLogic {
 
-    private static final PossibleVariantsLoader POSSIBLE_VARIANTS_LOADER = new PossibleVariantsLoader();
+    private static final ResponseLoader RESPONSE_LOADER = new ResponseLoader();
     private static final JsonParser JSON_PARSER = new JsonParser();
-    public ListOfPlaces listOfAddressResponse(String address, String language){
-        Response response = POSSIBLE_VARIANTS_LOADER.requestReleaser(
-                POSSIBLE_VARIANTS_LOADER.loadVariants(address));
+    public ListOfPlaces listOfAddressResponse(String language, String address){
+        Response response = RESPONSE_LOADER.requestReleaser(
+                RESPONSE_LOADER.loadVariants(address));
         String responseText = null;
         try {
             responseText = response.body().string();
@@ -38,25 +35,26 @@ public class AppLogic {
                     x.getStreet() + "\n" +
                     x.getHouseNumber() + "\n" +
                     x.getCountryCode() + "\n" +
-                    x.getPosition().getStringLat() + "\n" +
-                    x.getPosition().getStringLon() + "\n" +
+                    x.getPosition().getLat() + "\n" +
+                    x.getPosition().getLon() + "\n" +
                     x.getPosition().getLat() + "\n" +
                     x.getPosition().getLon() + "\n");
         });
         return newListOfPlaces;
     }
 
-    public void placeListLoadResponse(String language, String radius, ListOfPlaces listOfPlaces){
-        System.out.println("!1!");
+    public List<XidPlace> placeListLoadResponse(String language, String radius,
+                                                  ListOfPlaces listOfPlaces){
+        List<XidPlace> allXidPlacesList = new LinkedList<XidPlace>();
         listOfPlaces.getPlaceList().forEach(x->{
-            parsePlace(language, radius, x.getPosition());
+            List<XidPlace> tmpList = parsePlace(language, radius, x.getPosition());
+            allXidPlacesList.addAll(tmpList);
         });
-        System.out.println("!4!");
+        return allXidPlacesList;
     }
 
-    public void parsePlace(String language, String radius, GeoPosition geoPosition){
-        System.out.println("!2!");
-        Response response = POSSIBLE_VARIANTS_LOADER.requestReleaser(POSSIBLE_VARIANTS_LOADER
+    public List<XidPlace> parsePlace(String language, String radius, GeoPosition geoPosition){
+        Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER
                 .loadPlaceList(language, Integer.parseInt(radius), geoPosition));
         String responseText = null;
         try {
@@ -64,7 +62,53 @@ public class AppLogic {
         } catch (IOException e) {
             log.error("can't take response message");
         }
-        System.out.println("!3!");
         System.out.println(responseText);
+        return JSON_PARSER.parse(responseText, new TypeReference<List<XidPlace>>() {});
+    }
+
+    public void takeDescription(String language,List<XidPlace> responseXidList){
+        responseXidList.forEach(x->{
+            Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.
+                    loadPlaceDescription(language, x.getXid()));
+            String responseText = null;
+            try {
+                responseText = response.body().string();
+            } catch (IOException e) {
+                log.error("can't take response message");
+            }
+            System.out.println(response);
+            System.out.println(responseText);
+            PlaceDescription placeDescription = JSON_PARSER.parse(responseText, PlaceDescription.class);
+            System.out.println(placeDescription.getXid() + "\n" +
+                    placeDescription.getName() + "\n");
+            if(placeDescription.getInfo() != null){
+                if(placeDescription.getInfo().getDescr() != null){
+                    System.out.println(placeDescription.getInfo().getDescr());
+                }
+            }
+            if(placeDescription.getWikiInfo() != null) {
+                if (placeDescription.getWikiInfo().getTitle() != null) {
+                    System.out.println(placeDescription.getWikiInfo().getTitle());
+                }
+                if (placeDescription.getWikiInfo().getText() != null) {
+                    System.out.println(placeDescription.getWikiInfo().getText());
+                }
+            }
+        });
+    }
+    
+    public void takeWeather(String language, ListOfPlaces listOfPlaces){
+        listOfPlaces.getPlaceList().forEach(x->{
+            Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.loadPlaceWeather(
+                    language, x.getPosition()));
+            String responseText = null;
+            try {
+                responseText = response.body().string();
+            } catch (IOException e) {
+                log.error("can't take response message");
+            }
+            System.out.println(response);
+            System.out.println(responseText);
+        });
     }
 }
