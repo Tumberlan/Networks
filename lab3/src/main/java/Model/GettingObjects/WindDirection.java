@@ -1,23 +1,42 @@
 package Model.GettingObjects;
 
 public enum WindDirection {
-    NORTH("North"),
-    NORTH_EAST("North-East"),
-    EAST("East"),
-    SOUTH_EAST("South-East"),
-    SOUTH("South"),
-    SOUTH_WEST("South-West"),
-    WEST("West"),
-    NORTH_WEST("North-West");
+    NORTH,
+    WEST,
+    SOUTH,
+    EAST,
+    NORTH_WEST,
+    NORTH_EAST,
+    SOUTH_WEST,
+    SOUTH_EAST;
 
-    private final String text;
-
-    WindDirection(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public String toString() {
-        return this.text;
+    public String convertToString(){
+        switch (this){
+            case NORTH -> {
+                return "North";
+            }
+            case WEST -> {
+                return "West";
+            }
+            case SOUTH -> {
+                return "South";
+            }
+            case EAST -> {
+                return "East";
+            }
+            case NORTH_WEST -> {
+                return "North-West";
+            }
+            case NORTH_EAST -> {
+                return "North-East";
+            }
+            case SOUTH_WEST -> {
+                return "South-West";
+            }
+            case SOUTH_EAST -> {
+                return "South-East";
+            }
+        }
+        return null;
     }
 }

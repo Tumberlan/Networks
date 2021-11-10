@@ -55,7 +55,7 @@ public class ResponseLoader {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("https://api.openweathermap.org/data/2.5/weather?lat=").
                 append(geoPosition.getLat()).append("&lon=").append(geoPosition.getLon()).
-                append("units=metric&lang=").append(language).append("&appid=")
+                append("&units=metric&lang=").append(language).append("&appid=")
                 .append("c7d914af91d9c31231f4789829c0c599");
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
