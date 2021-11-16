@@ -14,7 +14,8 @@ public class AppLogic {
 
     private static final ResponseLoader RESPONSE_LOADER = new ResponseLoader();
     private static final JsonParser JSON_PARSER = new JsonParser();
-    public ListOfPlaces listOfAddressResponse(String language, String address){
+
+    public ListOfPlaces listOfAddressResponse(String address){
         Response response = RESPONSE_LOADER.requestReleaser(
                 RESPONSE_LOADER.loadVariants(address));
         String responseText = null;
@@ -109,6 +110,24 @@ public class AppLogic {
             }
             System.out.println(response);
             System.out.println(responseText);
+            Weather weather = JSON_PARSER.parse(responseText, Weather.class);
+            weather.getJustWeatherInfo().forEach(y->{
+                System.out.println(y.getMain() + "\n" + y.getDescription());
+            });
+            System.out.println(weather.getMainWeather().getTemperature() + "\n" +
+                    weather.getMainWeather().getFeelsLike() + "\n" +
+                    weather.getMainWeather().getMinTemperature() + "\n" +
+                    weather.getMainWeather().getMaxTemperature() + "\n" +
+                    weather.getMainWeather().getHumidity() + "\n" +
+                    weather.getMainWeather().getPressure() + "\n" +
+                    weather.getMainWeather().getSeaLevel() + "\n" +
+                    weather.getMainWeather().getGroundLevel());
+            System.out.println(weather.getClouds().getCloudsAmount());
+            System.out.println(weather.getVisibility());
+            System.out.println(weather.getWind().getDegree() + "\n" +
+                    weather.getWind().getSpeed() + "\n" +
+                    weather.getWind().getGust() + "\n" +
+                    weather.getWind().calculateWindDirection().convertToString());
         });
     }
 }

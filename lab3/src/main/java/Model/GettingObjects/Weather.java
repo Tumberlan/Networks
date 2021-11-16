@@ -1,9 +1,13 @@
 package Model.GettingObjects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
 public class Weather {
     private @JsonProperty("weather") List<JustWeatherInfo> justWeatherInfo;
     private @JsonProperty("main") MainWeather mainWeather;
@@ -11,12 +15,15 @@ public class Weather {
     private Wind wind;
     private Clouds clouds;
 
-
+    @Getter
+    @Setter
     public static final class JustWeatherInfo{
         private String main;
         private String description;
     }
 
+    @Getter
+    @Setter
     public static final class MainWeather{
         private @JsonProperty("temp") double temperature;
         private @JsonProperty("feels_like") double feelsLike;
@@ -28,6 +35,8 @@ public class Weather {
         private @JsonProperty("grnd_level") int groundLevel;
     }
 
+    @Getter
+    @Setter
     public static final class Wind{
         private int speed;
         private @JsonProperty("deg") int degree;
@@ -65,6 +74,8 @@ public class Weather {
         }
     }
 
+    @Getter
+    @Setter
     public static final class Clouds{
         private @JsonProperty("all") int cloudsAmount;
     }

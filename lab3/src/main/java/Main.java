@@ -1,15 +1,11 @@
-import Model.AppLogic;
-import Model.GettingObjects.ListOfPlaces;
-import Model.GettingObjects.XidPlace;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.List;
+
 
 public class Main {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
-        AppLogic appLogic = new AppLogic();
+        /*AppLogic appLogic = new AppLogic();
         ListOfPlaces listOfPlaces = appLogic.listOfAddressResponse("en","Москва");
         List<XidPlace> xidList = appLogic.placeListLoadResponse("ru", "14", listOfPlaces);
         xidList.forEach(x->{
@@ -17,6 +13,16 @@ public class Main {
             System.out.println(x.getXid());
         });
         appLogic.takeDescription("ru", xidList);
-        appLogic.takeWeather("ru", listOfPlaces);
+        appLogic.takeWeather("ru", listOfPlaces);*/
+
+        //AppLogic appLogic = new AppLogic();
+        //FirstFrame firstFrame = new FirstFrame(appLogic);
+        //MainFrame mainFrame = new MainFrame(appLogic);
+        //ListOfPlaces listOfPlaces = appLogic.listOfAddressResponse("moscow");
+
+        App app = new App();
+        app.start();
+
+        //TestFrame testFrame = new TestFrame(listOfPlaces);
     }
 }
