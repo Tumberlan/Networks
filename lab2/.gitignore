@@ -1,9 +1,0 @@
-.idea/
-*.xml
-
-.target/
-.classes/
-*.class
-.generated-sources
-
-*.iml
