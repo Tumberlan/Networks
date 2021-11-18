@@ -1,4 +1,4 @@
-package View.New;
+package View;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +13,8 @@ public class QuestionPanel {
 
     private int height;
     private int width;
+    private int xCoord;
+    private int yCoord;
     private String address = null;
 
     private JPanel panel;
@@ -21,22 +23,19 @@ public class QuestionPanel {
     private JButton button;
     private GridBagConstraints constraints = new GridBagConstraints();
 
-    public QuestionPanel(int parentHeight, int parentWidth){
+    public QuestionPanel(int parentHeight, int parentWidth) {
         panel = new JPanel();
-        height = parentHeight/4;
-        width = parentWidth;
-        //panel.setSize(new Dimension(width, height));
-        panel.setBounds(0,0,width,height);
+        calculateDimensions(parentWidth, parentHeight);
+        panel.setBounds(xCoord, yCoord, width, height);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         panel.setLayout(new GridBagLayout());
 
         initComponents();
-
     }
 
-    private void initComponents(){
+    private void initComponents() {
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets = new Insets(5,5,5,5);
+        constraints.insets = new Insets(5, 5, 5, 5);
         constraints.gridy = 0;
         constraints.gridx = 0;
         label = new JLabel("Please, put here place that you want found");
@@ -45,7 +44,7 @@ public class QuestionPanel {
         constraints.gridx = 1;
         constraints.ipadx = 250;
         addressTextField = new JTextField();
-        panel.add(addressTextField,constraints);
+        panel.add(addressTextField, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 1;
@@ -55,15 +54,18 @@ public class QuestionPanel {
         panel.add(button, constraints);
     }
 
-    public void addActionListenerToSearchButton(ActionListener searchButtonListener){
+    public void addActionListenerToSearchButton(ActionListener searchButtonListener) {
         button.addActionListener(searchButtonListener);
     }
 
-    public String getAddressFromTextField(){
+    public String getAddressFromTextField() {
         return addressTextField.getText();
     }
 
-    public void refreshPanel(){
-        panel.revalidate();
+    private void calculateDimensions(int parentWidth, int parentHeight) {
+        width = parentWidth;
+        height = parentHeight / 4;
+        xCoord = 0;
+        yCoord = 0;
     }
 }

@@ -11,5 +11,6 @@ public class XidPlace {
     private String xid;
     private String name;
     private String kinds;
-    private @JsonProperty("point") GeoPosition position;
+    private @JsonProperty("point")
+    GeoPosition position;
 }

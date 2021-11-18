@@ -8,7 +8,6 @@ import okhttp3.Response;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.Properties;
 
 @Slf4j
 public class ResponseLoader {
@@ -16,10 +15,7 @@ public class ResponseLoader {
     private static final int MIN_RADIUS_VALUE = 250;
     private static final int MAX_RADIUS_VALUE = 1000;
     private static final int LIMIT_VALUE = 20;
-    private static final Properties properties = new Properties();
-
-
-    private static final OkHttpClient client = new OkHttpClient();
+    private static final OkHttpClient CLIENT = new OkHttpClient();
 
     public Request loadVariants(String inputAddress) {
 
@@ -60,16 +56,14 @@ public class ResponseLoader {
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
-    public Response requestReleaser(Request request){
-        System.out.println(request);
-        Call call = client.newCall(request);
+    public Response requestReleaser(Request request) {
+        Call call = CLIENT.newCall(request);
         Response response = null;
         try {
             response = call.execute();
         } catch (IOException e) {
             log.error("No response for your request");
         }
-        System.out.println(response);
         return response;
     }
 

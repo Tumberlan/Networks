@@ -13,7 +13,10 @@ public class Place {
     private String city;
     private String state;
     private String street;
-    private @JsonProperty("housenumber") String houseNumber;
-    private @JsonProperty("countrycode") String countryCode;
-    private @JsonProperty("point") GeoPosition position;
+    private @JsonProperty("housenumber")
+    String houseNumber;
+    private @JsonProperty("countrycode")
+    String countryCode;
+    private @JsonProperty("point")
+    GeoPosition position;
 }

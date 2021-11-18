@@ -9,5 +9,6 @@ import java.util.List;
 @Getter
 @Setter
 public class ListOfPlaces {
-    private @JsonProperty("hits") List<Place> placeList;
+    private @JsonProperty("hits")
+    List<Place> placeList;
 }

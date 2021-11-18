@@ -10,8 +10,8 @@ public enum WindDirection {
     SOUTH_WEST,
     SOUTH_EAST;
 
-    public String convertToString(){
-        switch (this){
+    public String convertToString() {
+        switch (this) {
             case NORTH -> {
                 return "North";
             }

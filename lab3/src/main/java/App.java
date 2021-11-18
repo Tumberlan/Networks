@@ -1,9 +1,8 @@
 import Controller.SearchButtonController;
 import Model.AppLogic;
-import View.New.FirstFrame;
+import View.FirstFrame;
 
 public class App {
-
 
     public void start() {
         AppLogic appLogic = new AppLogic();

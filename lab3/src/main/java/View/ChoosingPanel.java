@@ -1,10 +1,9 @@
-package View.New;
+package View;
 
 import Model.GeoPosition;
 import Model.GettingObjects.ListOfPlaces;
 import Model.GettingObjects.Place;
-import View.OneVariantPanel;
-import View.VerticalLayout;
+import View.Utils.VerticalLayout;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +19,8 @@ public class ChoosingPanel {
 
     private int height;
     private int width;
+    private int xCoord;
+    private int yCoord;
 
     private JPanel panel;
     private ListOfPlaces listOfPlaces;
@@ -27,25 +28,24 @@ public class ChoosingPanel {
     private JScrollPane scrollPane;
     private List<OneVariantPanel> oneVariantPanelList;
 
-    public ChoosingPanel(int parentHeight, int parentWidth){
+    public ChoosingPanel(int parentHeight, int parentWidth) {
         panel = new JPanel();
-        height = parentHeight*3/4;
-        width = parentWidth/2;
-        panel.setBounds(0, parentHeight/4, width, height);
-        panel.setBackground(Color.CYAN);
+        calculateDimensions(parentWidth, parentHeight);
+        panel.setBounds(xCoord, yCoord, width, height);
         panel.setLayout(new BorderLayout());
-
+        panel.setBackground(Color.cyan);
         initComponents();
+        panel.add(scrollPane, BorderLayout.CENTER);
     }
 
-    private void initComponents(){
+    private void initComponents() {
         scrollPanel = new JPanel(new VerticalLayout());
         scrollPanel.setSize(new Dimension(width, height));
         scrollPane = new JScrollPane(scrollPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     }
 
-    public void setListOfPlaces(ListOfPlaces listOfPlaces){
+    public void setListOfPlaces(ListOfPlaces listOfPlaces) {
         panel.remove(scrollPane);
         oneVariantPanelList = new LinkedList<OneVariantPanel>();
         initComponents();
@@ -55,37 +55,38 @@ public class ChoosingPanel {
     }
 
     private void addPlaceOnPanel(Place place) {
-        OneVariantPanel tmpNewOneVariantPanel = new OneVariantPanel(width,place);
+        OneVariantPanel tmpNewOneVariantPanel = new OneVariantPanel(width, place);
         oneVariantPanelList.add(tmpNewOneVariantPanel);
     }
 
-    private void addPlacesFromListToPanel(){
-        oneVariantPanelList.forEach(x->{
+    private void addPlacesFromListToPanel() {
+        oneVariantPanelList.forEach(x -> {
             scrollPanel.add(x.getPanel());
             scrollPanel.revalidate();
         });
     }
 
-    private void processListOfPlaces(){
+    private void processListOfPlaces() {
         if (this.listOfPlaces != null) {
             this.listOfPlaces.getPlaceList().forEach(this::addPlaceOnPanel);
         }
         addPlacesFromListToPanel();
     }
 
-    public void refreshPanel(){
-        scrollPane.revalidate();
-        scrollPanel.revalidate();
-        panel.revalidate();
-    }
-
-    public void addActionListenerToInfoOnOneVariant(ActionListener actionListener, GeoPosition geoPosition){
-        oneVariantPanelList.forEach(x->{
-            if(x.getPlace().getPosition().equals(geoPosition)) {
+    public void addActionListenerToInfoOnOneVariant(ActionListener actionListener,
+                                                    GeoPosition geoPosition) {
+        oneVariantPanelList.forEach(x -> {
+            if (x.getPlace().getPosition().equals(geoPosition)) {
                 x.addActionListenerToInfoButton(actionListener);
             }
         });
         panel.revalidate();
     }
 
+    private void calculateDimensions(int parentWidth, int parentHeight) {
+        width = parentWidth / 2;
+        height = parentHeight * 3 / 4;
+        xCoord = 0;
+        yCoord = parentHeight / 4;
+    }
 }

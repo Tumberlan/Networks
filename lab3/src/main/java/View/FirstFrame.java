@@ -1,10 +1,9 @@
-package View.New;
+package View;
 
 import Model.GeoPosition;
 import Model.GettingObjects.ListOfPlaces;
 import Model.GettingObjects.PlaceDescription;
 import Model.GettingObjects.Weather;
-import Model.GettingObjects.XidPlace;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,19 +20,27 @@ public class FirstFrame {
 
     private static final int FRAME_WIDTH = 800;
     private static final int FRAME_HEIGHT = 600;
+    private static final int FRAME_WIDTH_VISIBLE_OFFSET_FIX = 15;
+    private static final int FRAME_HEIGHT_VISIBLE_OFFSET_FIX = 35;
+    private static final int FRAME_X_LOCATION = 0;
+    private static final int FRAME_Y_LOCATION = 0;
 
     private JFrame frame;
     private JPanel panel = new JPanel();
     private QuestionPanel questionPanel;
     private ChoosingPanel choosingPanel;
     private InfoPanel infoPanel;
+    private WeatherPanel weatherPanel;
 
     public FirstFrame() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setLocation(0, 0);
-        frame.setPreferredSize(new Dimension(FRAME_WIDTH + 15, FRAME_HEIGHT + 35));
+        frame.setLayout(null);
+        frame.setLocation(FRAME_X_LOCATION, FRAME_Y_LOCATION);
+        frame.setPreferredSize(new Dimension(FRAME_WIDTH + FRAME_WIDTH_VISIBLE_OFFSET_FIX,
+                FRAME_HEIGHT + FRAME_HEIGHT_VISIBLE_OFFSET_FIX));
         frame.setTitle("my app");
+        frame.setResizable(false);
 
         initPanels();
 
@@ -48,10 +55,12 @@ public class FirstFrame {
         questionPanel.setButton(tmpButton);
         choosingPanel = new ChoosingPanel(FRAME_HEIGHT, FRAME_WIDTH);
         infoPanel = new InfoPanel(FRAME_HEIGHT, FRAME_WIDTH);
+        weatherPanel = new WeatherPanel(FRAME_HEIGHT, FRAME_WIDTH);
 
         frame.add(questionPanel.getPanel());
         frame.add(choosingPanel.getPanel());
         frame.add(infoPanel.getPanel());
+        frame.add(weatherPanel.getPanel());
     }
 
     public void addActionListenerToQuestionPanel(ActionListener searchButtonListener) {
@@ -71,24 +80,12 @@ public class FirstFrame {
         return questionPanel.getAddressFromTextField();
     }
 
-    public void refreshQuestionPanel() {
-        questionPanel.refreshPanel();
+    public void setDescriptionsOnInfoPanel(List<PlaceDescription> descriptionList) {
+        infoPanel.setPlaceDescriptionList(descriptionList);
     }
 
-    public void refreshChoosingPanel() {
-        choosingPanel.refreshPanel();
-    }
-
-    public void refreshQInfoPanel() {
-        infoPanel.refreshPanel();
-    }
-
-    public void setXidListOnInfoPanel(List<XidPlace> xidList) {
-        infoPanel.resetXidList(xidList);
-    }
-
-    public void setDescriptionAndWeatherOnInfoPanel(PlaceDescription description, Weather weather){
-        infoPanel.setDescriptionAndWeather(description, weather);
+    public void setWeatherOnWeatherPanel(Weather weather) {
+        weatherPanel.setPlaceWeather(weather);
     }
 
     public void refreshFrame() {
