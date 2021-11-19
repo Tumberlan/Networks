@@ -60,7 +60,7 @@ public class InfoPanel {
     private void processListInfo() {
         if (placeDescriptionList != null) {
             placeDescriptionList.forEach(this::addDescriptionOnPanel);
-            if (0 == placeDescriptionList.size()) {
+            if (placeDescriptionList.size() == 0) {
                 addNoDescriptionsOnPanel();
             } else {
                 addDescriptionFromListToPanel();

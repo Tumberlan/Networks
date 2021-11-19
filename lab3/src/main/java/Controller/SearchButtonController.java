@@ -5,6 +5,7 @@ import Model.GeoPosition;
 import Model.GettingObjects.*;
 import View.FirstFrame;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.CompletableFuture;
@@ -40,6 +41,10 @@ public class SearchButtonController {
                             x), tmpGeoPos);
                 });
                 firstFrame.refreshFrame();
+                if(0 == listOfPlaces.getPlaceList().size()){
+                    JOptionPane.showMessageDialog(firstFrame.getFrame(),
+                            "No places found with that name");
+                }
             });
         }
 
@@ -69,7 +74,6 @@ public class SearchButtonController {
                                 tmpListPlace)).thenAcceptAsync(x -> {
                             firstFrame.setDescriptionsOnInfoPanel(x);
                             firstFrame.refreshFrame();
-
                         });
                     });
         }

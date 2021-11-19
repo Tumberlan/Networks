@@ -70,7 +70,6 @@ public class DescriptionAndWeatherPanel {
 
     private String[][] makeDescriptionString(boolean isEmpty) {
         if (isEmpty) {
-            System.out.println("AASSAASSASASAASSAS");
             return new String[][]{
                     {parseDescriptionsAmount(), "heading"}
             };
@@ -78,8 +77,7 @@ public class DescriptionAndWeatherPanel {
         return new String[][]{
                 {nameCheck(description.getName()) + "\r\n", "heading"},
                 {"Description:\r\n", "new_paragraph"},
-                {"Default information: " + notNullAddToStringBuilder(description.getInfo()) + "\r\n",
-                        "normal"},
+                {"Default information: " + parseDescription() + "\r\n", "normal"},
                 {"Wikipedia information:\r\n" + parseWikiInfo(), "normal"}
         };
     }
@@ -92,6 +90,13 @@ public class DescriptionAndWeatherPanel {
                 {"Clouds amount: " + weather.getClouds().getCloudsAmount() + "\r\n", "normal"},
                 {parseWind(), "normal"}
         };
+    }
+
+    private String parseDescription(){
+        if(description.getInfo() != null){
+            return notNullAddToStringBuilder(description.getInfo().getDescr());
+        }
+        return "-";
     }
 
     private String parseWikiInfo() {
