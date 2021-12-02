@@ -1,9 +1,9 @@
-package View;
+package view;
 
-import Model.GeoPosition;
-import Model.GettingObjects.ListOfPlaces;
-import Model.GettingObjects.PlaceDescription;
-import Model.GettingObjects.Weather;
+import model.GeoPosition;
+import model.gettingobjects.ListOfPlaces;
+import model.gettingobjects.Weather;
+import model.gettingobjects.XidPlace;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,20 +33,21 @@ public class FirstFrame {
     private WeatherPanel weatherPanel;
 
     public FirstFrame() {
-        frame = new JFrame();
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setLocation(FRAME_X_LOCATION, FRAME_Y_LOCATION);
-        frame.setPreferredSize(new Dimension(FRAME_WIDTH + FRAME_WIDTH_VISIBLE_OFFSET_FIX,
-                FRAME_HEIGHT + FRAME_HEIGHT_VISIBLE_OFFSET_FIX));
-        frame.setTitle("my app");
-        frame.setResizable(false);
 
-        initPanels();
-
-        frame.pack();
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+        SwingUtilities.invokeLater(() -> {
+            frame = new JFrame();
+            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            frame.setLayout(null);
+            frame.setLocation(FRAME_X_LOCATION, FRAME_Y_LOCATION);
+            frame.setPreferredSize(new Dimension(FRAME_WIDTH + FRAME_WIDTH_VISIBLE_OFFSET_FIX,
+                    FRAME_HEIGHT + FRAME_HEIGHT_VISIBLE_OFFSET_FIX));
+            frame.setTitle("my app");
+            frame.setResizable(false);
+            initPanels();
+            frame.pack();
+            frame.setVisible(true);
+            frame.setLocationRelativeTo(null);
+        });
     }
 
     private void initPanels() {
@@ -76,12 +77,16 @@ public class FirstFrame {
         choosingPanel.setListOfPlaces(listOfPlaces);
     }
 
+    public void addActionListenersToInfoPanel(ActionListener actionListener, String xid) {
+        infoPanel.addActionListenerToInfoOnOnePlace(actionListener, xid);
+    }
+
     public String getAddressFromQuestionPanelTextField() {
         return questionPanel.getAddressFromTextField();
     }
 
-    public void setDescriptionsOnInfoPanel(List<PlaceDescription> descriptionList) {
-        infoPanel.setPlaceDescriptionList(descriptionList);
+    public void setXidPlaceListOnInfoPanel(List<XidPlace> xidPlaceList) {
+        infoPanel.setXidPlaceList(xidPlaceList);
     }
 
     public void setWeatherOnWeatherPanel(Weather weather) {

@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Model.GettingObjects.*;
+import model.gettingobjects.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Response;
@@ -18,6 +18,9 @@ public class AppLogic {
     public ListOfPlaces listOfAddressResponse(String address) {
         Response response = RESPONSE_LOADER.requestReleaser(
                 RESPONSE_LOADER.loadVariants(address));
+        if (null == response) {
+            return null;
+        }
         String responseText = null;
         try {
             responseText = response.body().string();
@@ -31,6 +34,9 @@ public class AppLogic {
     public List<XidPlace> parsePlace(String language, String radius, GeoPosition geoPosition) {
         Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER
                 .loadPlaceList(language, Integer.parseInt(radius), geoPosition));
+        if (null == response) {
+            return null;
+        }
         String responseText = null;
         try {
             responseText = response.body().string();
@@ -41,7 +47,7 @@ public class AppLogic {
         });
     }
 
-    public List<PlaceDescription> takeDescription(String language, List<XidPlace> responseXidList) {
+    public List<PlaceDescription> takeAllDescription(String language, List<XidPlace> responseXidList) {
         List<PlaceDescription> listOfPlacesDescription = new LinkedList<PlaceDescription>();
         responseXidList.forEach(x -> {
             Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.
@@ -58,9 +64,25 @@ public class AppLogic {
         return listOfPlacesDescription;
     }
 
+    public PlaceDescription takeDescription(String language, XidPlace place) {
+        Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.
+                loadPlaceDescription(language, place.getXid()));
+        String responseText = null;
+        try {
+            responseText = response.body().string();
+        } catch (IOException e) {
+            log.error("can't take response message");
+        }
+        return JSON_PARSER.parse(responseText, PlaceDescription.class);
+    }
+
+
     public Weather takeWeather(String language, Place place) {
         Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.loadPlaceWeather(
                 language, place.getPosition()));
+        if (null == response) {
+            return null;
+        }
         String responseText = null;
         try {
             responseText = response.body().string();

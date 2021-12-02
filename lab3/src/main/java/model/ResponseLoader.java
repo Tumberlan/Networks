@@ -1,5 +1,6 @@
-package Model;
+package model;
 
+import model.gettingobjects.APIKeys;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -16,6 +17,12 @@ public class ResponseLoader {
     private static final int MAX_RADIUS_VALUE = 1000;
     private static final int LIMIT_VALUE = 20;
     private static final OkHttpClient CLIENT = new OkHttpClient();
+    private final APIKeys apiKeys;
+
+
+    public ResponseLoader() {
+        apiKeys = new APIKeys();
+    }
 
     public Request loadVariants(String inputAddress) {
 
@@ -23,7 +30,7 @@ public class ResponseLoader {
         stringBuilder.append("https://graphhopper.com/api/1/geocode?q=").
                 append(inputAddress.toLowerCase(Locale.ROOT)).
                 append("&locale=").append("en").append("&debug=true&key=")
-                .append("161b9191-04f3-42c5-a14e-ad7475471c70");
+                .append(apiKeys.getGraphhopperKey());
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
@@ -35,7 +42,7 @@ public class ResponseLoader {
                 append("/places/radius?").append("&radius=").append(radius).append(".0&lon=").
                 append(geoPosition.getLon()).append("&lat=").append(geoPosition.getLat()).
                 append("&format=json&limit=").append(LIMIT_VALUE).append("&apikey=").
-                append("5ae2e3f221c38a28845f05b67c3a04e20354ee205d9477ba49661b86");
+                append(apiKeys.getOpenTripMapKey());
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
@@ -43,7 +50,7 @@ public class ResponseLoader {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("https://api.opentripmap.com/0.1/").append(language).
                 append("/places/xid/").append(XID).append("?apikey=").
-                append("5ae2e3f221c38a28845f05b67c3a04e20354ee205d9477ba49661b86");
+                append(apiKeys.getOpenTripMapKey());
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 
@@ -52,7 +59,7 @@ public class ResponseLoader {
         stringBuilder.append("https://api.openweathermap.org/data/2.5/weather?lat=").
                 append(geoPosition.getLat()).append("&lon=").append(geoPosition.getLon()).
                 append("&units=metric&lang=").append(language).append("&appid=")
-                .append("c7d914af91d9c31231f4789829c0c599");
+                .append(apiKeys.getOpenWeatherMapKey());
         return new Request.Builder().url(stringBuilder.toString()).get().build();
     }
 

@@ -1,9 +1,8 @@
-package View;
+package view;
 
-import Model.GettingObjects.PlaceDescription;
-import Model.GettingObjects.Weather;
-import View.Utils.MyTextPane;
-import View.Utils.VerticalLayout;
+import model.gettingobjects.Weather;
+import view.utils.MyTextPane;
+import view.utils.VerticalLayout;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -22,27 +21,18 @@ public class DescriptionAndWeatherPanel {
     private int width;
 
     private JPanel panel;
-    private PlaceDescription description;
     private Weather weather;
     private MyTextPane textPane;
     private JPanel scrollPanel;
     private JScrollPane scrollPane;
+    private String placeName;
     private boolean isWeather;
     private boolean isDescriptionEmpty = false;
 
-    public DescriptionAndWeatherPanel(int parentWidth, Object object) {
-
+    public DescriptionAndWeatherPanel(int parentWidth, Weather newWeather) {
         panel = new JPanel(new GridLayout());
+        weather = newWeather;
 
-        if (object.getClass() == PlaceDescription.class) {
-            isWeather = false;
-            description = (PlaceDescription) object;
-        } else if (Weather.class == object.getClass()) {
-            isWeather = true;
-            weather = (Weather) object;
-        } else {
-            this.isDescriptionEmpty = true;
-        }
         calculateDimensions(parentWidth);
         panel.setPreferredSize(new Dimension(width, PANEL_HEIGHT));
         panel.setForeground(Color.YELLOW);
@@ -59,27 +49,9 @@ public class DescriptionAndWeatherPanel {
     private void initComponents() {
         textPane = new MyTextPane();
         textPane.setStyles();
-        if (isWeather) {
-            textPane.setText(makeWeatherString());
-        } else {
-            textPane.setText(makeDescriptionString(isDescriptionEmpty));
-        }
+        textPane.setText(makeWeatherString());
         textPane.setSize(new Dimension(width, PANEL_HEIGHT));
         scrollPanel.add(textPane.getTextPane());
-    }
-
-    private String[][] makeDescriptionString(boolean isEmpty) {
-        if (isEmpty) {
-            return new String[][]{
-                    {parseDescriptionsAmount(), "heading"}
-            };
-        }
-        return new String[][]{
-                {nameCheck(description.getName()) + "\r\n", "heading"},
-                {"Description:\r\n", "new_paragraph"},
-                {"Default information: " + parseDescription() + "\r\n", "normal"},
-                {"Wikipedia information:\r\n" + parseWikiInfo(), "normal"}
-        };
     }
 
     private String[][] makeWeatherString() {
@@ -90,25 +62,6 @@ public class DescriptionAndWeatherPanel {
                 {"Clouds amount: " + weather.getClouds().getCloudsAmount() + "\r\n", "normal"},
                 {parseWind(), "normal"}
         };
-    }
-
-    private String parseDescription(){
-        if(description.getInfo() != null){
-            return notNullAddToStringBuilder(description.getInfo().getDescr());
-        }
-        return "-";
-    }
-
-    private String parseWikiInfo() {
-        StringBuilder stringBuilder = new StringBuilder();
-        if (description.getWikiInfo() != null) {
-            stringBuilder.append("Title: ").append(notNullAddToStringBuilder(description.
-                    getWikiInfo().getTitle())).append("\r\n").append(notNullAddToStringBuilder(
-                    description.getWikiInfo().getText())).append("\r\n");
-        } else {
-            stringBuilder.append("-\r\n");
-        }
-        return stringBuilder.toString();
     }
 
     private String parseJustWeatherInfo() {
@@ -142,22 +95,6 @@ public class DescriptionAndWeatherPanel {
                 .append(" , Gust: ").append(weather.getWind().getGust())
                 .append(" , Direction ").append(weather.getWind().calculateWindDirection());
         return stringBuilder.toString();
-    }
-
-    private String parseDescriptionsAmount() {
-        if (isDescriptionEmpty) {
-            return "THAT POINT HAS NO MAPPED PLACES!";
-        } else {
-            return "";
-        }
-    }
-
-    private String nameCheck(String name) {
-        if (null == name || "".equals(name)) {
-            return "NO NAME";
-        } else {
-            return name;
-        }
     }
 
     private String notNullAddToStringBuilder(Object object) {

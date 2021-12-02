@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Model.GettingObjects.Weather;
-import View.Utils.VerticalLayout;
+import model.gettingobjects.Weather;
+import view.utils.VerticalLayout;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,12 +39,14 @@ public class WeatherPanel {
     }
 
     public void setPlaceWeather(Weather weather) {
-        panel.remove(scrollPane);
-        initComponents();
-        this.weather = weather;
-        processWeather();
-        panel.add(scrollPane, BorderLayout.CENTER);
-        panel.revalidate();
+        SwingUtilities.invokeLater(() -> {
+            panel.remove(scrollPane);
+            initComponents();
+            this.weather = weather;
+            processWeather();
+            panel.add(scrollPane, BorderLayout.CENTER);
+            panel.revalidate();
+        });
     }
 
     private void processWeather() {

@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +29,6 @@ public class QuestionPanel {
         panel.setBounds(xCoord, yCoord, width, height);
         panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         panel.setLayout(new GridBagLayout());
-
         initComponents();
     }
 

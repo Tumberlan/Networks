@@ -1,9 +1,9 @@
-package View;
+package view;
 
-import Model.GeoPosition;
-import Model.GettingObjects.ListOfPlaces;
-import Model.GettingObjects.Place;
-import View.Utils.VerticalLayout;
+import model.GeoPosition;
+import model.gettingobjects.ListOfPlaces;
+import model.gettingobjects.Place;
+import view.utils.VerticalLayout;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,7 +33,6 @@ public class ChoosingPanel {
         calculateDimensions(parentWidth, parentHeight);
         panel.setBounds(xCoord, yCoord, width, height);
         panel.setLayout(new BorderLayout());
-        panel.setBackground(Color.cyan);
         initComponents();
         panel.add(scrollPane, BorderLayout.CENTER);
     }
@@ -46,12 +45,14 @@ public class ChoosingPanel {
     }
 
     public void setListOfPlaces(ListOfPlaces listOfPlaces) {
-        panel.remove(scrollPane);
-        oneVariantPanelList = new LinkedList<OneVariantPanel>();
-        initComponents();
-        this.listOfPlaces = listOfPlaces;
-        processListOfPlaces();
-        panel.add(scrollPane, BorderLayout.CENTER);
+        SwingUtilities.invokeLater(() -> {
+            panel.remove(scrollPane);
+            oneVariantPanelList = new LinkedList<OneVariantPanel>();
+            initComponents();
+            this.listOfPlaces = listOfPlaces;
+            processListOfPlaces();
+            panel.add(scrollPane, BorderLayout.CENTER);
+        });
     }
 
     private void addPlaceOnPanel(Place place) {
@@ -75,14 +76,23 @@ public class ChoosingPanel {
 
     public void addActionListenerToInfoOnOneVariant(ActionListener actionListener,
                                                     GeoPosition geoPosition) {
-        oneVariantPanelList.forEach(x -> {
-            if (x.getPlace().getPosition().equals(geoPosition)) {
-                x.addActionListenerToInfoButton(actionListener);
-            }
+
+        SwingUtilities.invokeLater(() -> {
+            oneVariantPanelList.forEach(x -> {
+                if (x.getPlace().getPosition().equals(geoPosition)) {
+                    x.addActionListenerToInfoButton(actionListener);
+                }
+            });
+
+            panel.revalidate();
         });
-        panel.revalidate();
     }
 
+    /*
+    SwingUtilities.InvokeLater(()->{
+        --my code--
+    })
+     */
     private void calculateDimensions(int parentWidth, int parentHeight) {
         width = parentWidth / 2;
         height = parentHeight * 3 / 4;

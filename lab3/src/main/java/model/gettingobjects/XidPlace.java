@@ -1,6 +1,6 @@
-package Model.GettingObjects;
+package model.gettingobjects;
 
-import Model.GeoPosition;
+import model.GeoPosition;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;

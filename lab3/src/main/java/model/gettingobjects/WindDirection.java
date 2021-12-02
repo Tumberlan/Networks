@@ -1,4 +1,4 @@
-package Model.GettingObjects;
+package model.gettingobjects;
 
 public enum WindDirection {
     NORTH,

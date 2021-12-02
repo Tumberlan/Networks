@@ -1,4 +1,4 @@
-package Model.GettingObjects;
+package model.gettingobjects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

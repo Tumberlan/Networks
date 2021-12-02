@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Model.GettingObjects.Place;
-import View.Utils.MyTextPane;
+import model.gettingobjects.Place;
+import view.utils.MyTextPane;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +47,8 @@ public class OneVariantPanel {
 
     private String[][] makeDescriptionString() {
         return new String[][]{
-                {nameCheck(this.place.getName()) + "\r\n", "heading"},
+                {textPane.makeStringFormat(nameCheck(this.place.getName()), true) + "\r\n",
+                        "heading"},
                 {"State: " + notNullAddToStringBuilder(this.place.getState()), "normal"},
                 {" , Country: " + notNullAddToStringBuilder(this.place.getCountry()), "normal"},
                 {" (" + notNullAddToStringBuilder(this.place.getCountryCode()) + ")\r\n", "normal"},

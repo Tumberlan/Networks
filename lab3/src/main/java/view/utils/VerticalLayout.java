@@ -1,4 +1,4 @@
-package View.Utils;
+package view.utils;
 
 import java.awt.*;
 

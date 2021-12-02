@@ -1,6 +1,6 @@
-import Controller.SearchButtonController;
-import Model.AppLogic;
-import View.FirstFrame;
+import model.AppLogic;
+import view.FirstFrame;
+import controller.SearchButtonController;
 
 public class App {
 
