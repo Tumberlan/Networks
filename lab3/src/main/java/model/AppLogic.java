@@ -47,23 +47,6 @@ public class AppLogic {
         });
     }
 
-    public List<PlaceDescription> takeAllDescription(String language, List<XidPlace> responseXidList) {
-        List<PlaceDescription> listOfPlacesDescription = new LinkedList<PlaceDescription>();
-        responseXidList.forEach(x -> {
-            Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.
-                    loadPlaceDescription(language, x.getXid()));
-            String responseText = null;
-            try {
-                responseText = response.body().string();
-            } catch (IOException e) {
-                log.error("can't take response message");
-            }
-            PlaceDescription placeDescription = JSON_PARSER.parse(responseText, PlaceDescription.class);
-            listOfPlacesDescription.add(placeDescription);
-        });
-        return listOfPlacesDescription;
-    }
-
     public PlaceDescription takeDescription(String language, XidPlace place) {
         Response response = RESPONSE_LOADER.requestReleaser(RESPONSE_LOADER.
                 loadPlaceDescription(language, place.getXid()));

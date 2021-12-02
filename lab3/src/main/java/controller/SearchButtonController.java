@@ -26,14 +26,13 @@ public class SearchButtonController {
 
     class SearchButtonListener implements ActionListener {
 
-        private String language;
+        private static final String LANGUAGE = "en";
 
         @Override
         public void actionPerformed(ActionEvent e) {
             SwingUtilities.invokeLater(() -> {
                 String address = firstFrame.getAddressFromQuestionPanelTextField();
                 CompletableFuture.supplyAsync(() -> {
-                    analyzeLanguage(address);
                     return appLogic.listOfAddressResponse(address);
                 }).thenAcceptAsync(listOfPlaces -> {
                     if (null == listOfPlaces) {
@@ -45,10 +44,10 @@ public class SearchButtonController {
                     listOfPlaces.getPlaceList().forEach(x -> {
                         GeoPosition tmpGeoPos = x.getPosition();
                         firstFrame.addActionListenersToChoosingPanel(new
-                                XidPlaceInfoButtonListener(language,
+                                XidPlaceInfoButtonListener(LANGUAGE,
                                 "15", tmpGeoPos), tmpGeoPos);
                         firstFrame.addActionListenersToChoosingPanel(new
-                                WeatherInfoButtonListener(language, x), tmpGeoPos);
+                                WeatherInfoButtonListener(LANGUAGE, x), tmpGeoPos);
                     });
                     firstFrame.refreshFrame();
                     if (0 == listOfPlaces.getPlaceList().size()) {
@@ -57,10 +56,6 @@ public class SearchButtonController {
                     }
                 });
             });
-        }
-
-        private void analyzeLanguage(String address) {
-            language = "en";
         }
     }
 
@@ -91,13 +86,6 @@ public class SearchButtonController {
                                         new ShowDescriptionButtonListener(language, x), tmpXid);
                             });
                             firstFrame.refreshFrame();
-                            /*CompletableFuture.supplyAsync(() -> appLogic.takeDescription(language,
-                                    tmpListPlace)).thenAcceptAsync(x -> {
-                                firstFrame.setDescriptionsOnInfoPanel(x);
-                                firstFrame.refreshFrame();
-                            });
-
-                             */
                         });
             });
         }
