@@ -8,3 +8,10 @@
 2) потом получаем список мест: https://opentripmap.io/docs#/Objects%20list/getListOfPlacesByRadius
 3) потом для мест - их описание https://opentripmap.io/docs#/Object%20properties/getPlaceByXid
 4) ну и потом погоду ещё https://openweathermap.org/current
+
+ЗАПУСК:
+Перед запуском приложения пройдите по пути \src\main\resources и в файле KEYS.properties подставьте свои ключи к указанным сервисам: 
+
+GRAPHHOPPER_KEY="ваш ключ с данного ресурса https://docs.graphhopper.com"
+OPEN_TRIP_MAP_KEY="ваш ключ с данного ресурса https://opentripmap.io"
+OPEN_WEATHER_MAP_KEY="ваш ключ с данного сресурса https://openweathermap.org"
