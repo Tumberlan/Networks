@@ -30,32 +30,32 @@ public class SearchButtonController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            SwingUtilities.invokeLater(() -> {
-                String address = firstFrame.getAddressFromQuestionPanelTextField();
-                CompletableFuture.supplyAsync(() -> {
-                    return appLogic.listOfAddressResponse(address);
-                }).thenAcceptAsync(listOfPlaces -> {
-                    if (null == listOfPlaces) {
-                        JOptionPane.showMessageDialog(firstFrame.getFrame(),
-                                "Error in list of places response load");
-                        return;
-                    }
-                    firstFrame.setListOfPlacesToChoosingPanel(listOfPlaces);
-                    listOfPlaces.getPlaceList().forEach(x -> {
-                        GeoPosition tmpGeoPos = x.getPosition();
-                        firstFrame.addActionListenersToChoosingPanel(new
-                                XidPlaceInfoButtonListener(LANGUAGE,
-                                "15", tmpGeoPos), tmpGeoPos);
-                        firstFrame.addActionListenersToChoosingPanel(new
-                                WeatherInfoButtonListener(LANGUAGE, x), tmpGeoPos);
-                    });
-                    firstFrame.refreshFrame();
-                    if (0 == listOfPlaces.getPlaceList().size()) {
-                        JOptionPane.showMessageDialog(firstFrame.getFrame(),
-                                "No places found with that name");
-                    }
+
+            String address = firstFrame.getAddressFromQuestionPanelTextField();
+            CompletableFuture.supplyAsync(() -> {
+                return appLogic.listOfAddressResponse(address);
+            }).thenAcceptAsync(listOfPlaces -> {
+                if (null == listOfPlaces) {
+                    JOptionPane.showMessageDialog(firstFrame.getFrame(),
+                            "Error in list of places response load");
+                    return;
+                }
+                firstFrame.setListOfPlacesToChoosingPanel(listOfPlaces);
+                listOfPlaces.getPlaceList().forEach(x -> {
+                    GeoPosition tmpGeoPos = x.getPosition();
+                    firstFrame.addActionListenersToChoosingPanel(new
+                            XidPlaceInfoButtonListener(LANGUAGE,
+                            "15", tmpGeoPos), tmpGeoPos);
+                    firstFrame.addActionListenersToChoosingPanel(new
+                            WeatherInfoButtonListener(LANGUAGE, x), tmpGeoPos);
                 });
+                firstFrame.refreshFrame();
+                if (0 == listOfPlaces.getPlaceList().size()) {
+                    JOptionPane.showMessageDialog(firstFrame.getFrame(),
+                            "No places found with that name");
+                }
             });
+
         }
     }
 
@@ -76,18 +76,17 @@ public class SearchButtonController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            SwingUtilities.invokeLater(() -> {
-                CompletableFuture.supplyAsync(() -> appLogic.parsePlace(language, radius, geoPosition))
-                        .thenAcceptAsync(tmpListPlace -> {
-                            firstFrame.setXidPlaceListOnInfoPanel(tmpListPlace);
-                            tmpListPlace.forEach(x -> {
-                                String tmpXid = x.getXid();
-                                firstFrame.addActionListenersToInfoPanel(
-                                        new ShowDescriptionButtonListener(language, x), tmpXid);
-                            });
-                            firstFrame.refreshFrame();
+            CompletableFuture.supplyAsync(() -> appLogic.parsePlace(language, radius, geoPosition))
+                    .thenAcceptAsync(tmpListPlace -> {
+                        firstFrame.setXidPlaceListOnInfoPanel(tmpListPlace);
+                        tmpListPlace.forEach(x -> {
+                            String tmpXid = x.getXid();
+                            firstFrame.addActionListenersToInfoPanel(
+                                    new ShowDescriptionButtonListener(language, x), tmpXid);
                         });
-            });
+                        firstFrame.refreshFrame();
+                    });
+
         }
     }
 
@@ -105,13 +104,12 @@ public class SearchButtonController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            SwingUtilities.invokeLater(() -> {
-                CompletableFuture.supplyAsync(() -> appLogic.takeWeather(language, place))
-                        .thenAcceptAsync(x -> {
-                            firstFrame.setWeatherOnWeatherPanel(x);
-                            firstFrame.refreshFrame();
-                        });
-            });
+            CompletableFuture.supplyAsync(() -> appLogic.takeWeather(language, place))
+                    .thenAcceptAsync(x -> {
+                        firstFrame.setWeatherOnWeatherPanel(x);
+                        firstFrame.refreshFrame();
+                    });
+
         }
     }
 
@@ -126,16 +124,15 @@ public class SearchButtonController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            SwingUtilities.invokeLater(() -> {
-                CompletableFuture.supplyAsync(() -> appLogic.takeDescription(language, place))
-                        .thenAcceptAsync(description -> {
-                            DescriptionOptionPanel descriptionOptionPanel =
-                                    new DescriptionOptionPanel(description);
-                            JTextPane tmpTextPane = descriptionOptionPanel.getContent();
-                            JOptionPane.showMessageDialog(firstFrame.getFrame(), tmpTextPane,
-                                    "Description of " + place.getName(), JOptionPane.PLAIN_MESSAGE);
-                        });
-            });
+            CompletableFuture.supplyAsync(() -> appLogic.takeDescription(language, place))
+                    .thenAcceptAsync(description -> {
+                        DescriptionOptionPanel descriptionOptionPanel =
+                                new DescriptionOptionPanel(description);
+                        JTextPane tmpTextPane = descriptionOptionPanel.getContent();
+                        JOptionPane.showMessageDialog(firstFrame.getFrame(), tmpTextPane,
+                                "Description of " + place.getName(), JOptionPane.PLAIN_MESSAGE);
+                    });
+
         }
     }
 }
