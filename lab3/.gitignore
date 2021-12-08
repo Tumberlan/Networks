@@ -1,0 +1,13 @@
+.idea/
+*.gradle
+
+gradle/
+
+build/
+
+.target/
+.classes/
+*.class
+.generated-sources
+
+*.iml
