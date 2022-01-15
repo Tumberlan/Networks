@@ -31,6 +31,8 @@ public class Proxy {
             return;
         }
 
+        log.info("PROXY STARTED");
+
         while (true) {
             try {
                 if (selector.select() <= 0) {
@@ -42,8 +44,6 @@ public class Proxy {
 
             Set<SelectionKey> selectedKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = selectedKeys.iterator();
-
-            log.info("PROXY STARTED");
 
             while (iterator.hasNext()) {
                 var key = iterator.next();
