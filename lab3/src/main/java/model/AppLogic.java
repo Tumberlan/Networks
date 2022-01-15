@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.Response;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 @Slf4j
