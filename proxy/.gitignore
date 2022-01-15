@@ -1,9 +1,5 @@
 .idea/
-*.gradle
-
-gradle/
-
-build/
+*.xml
 
 .target/
 .classes/
